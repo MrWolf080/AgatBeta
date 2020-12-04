@@ -1,7 +1,7 @@
 <?php
 	$connect=mysqli_connect('localhost','root','root','salon_beta');
 	
-	if(!connect)
+	if(!isset($connect))
 	{
 		die('Error Database connection');
 	}

@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,7 +8,23 @@
   <title>Beauty studio Agat</title>
   <link href="https://fonts.googleapis.com/css?family=Lato: 100,300,400,700|Luckiest+Guy|Oxygen:300,400" rel="stylesheet">
   <link href="styles/style.css" type="text/css" rel="stylesheet">
-  <a href="lk/auth.php">Личный кабинет</a>
+  <?php
+	if($_SESSION['message'])
+		{
+			echo $_SESSION['message'];
+			unset($_SESSION['message']);
+		}
+   ?>
+   <?php
+	if($_SESSION['user'])
+	{
+		echo 'Привет, '.$_SESSION['user']['fio']. ' <a href="lk/exit.php">Выход</a>';
+	}
+	else
+	{
+		echo '<a href="lk/auth.php">Вход/Регистрация</a>';
+	}
+  ?>
 </head>
 <body>
    <h1>Добро пожаловать в Beauty Studio AgaT</h1>
