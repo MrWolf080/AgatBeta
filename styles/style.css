@@ -1,7 +1,7 @@
 thead th{
      background-color:rgba(0, 0, 0, 0.9);
      color: gold;
-     font-family: 'URW Chancery L', cursive;
+     font-family: 'Marutya';
      font-size: 30px;
      font-weight: 100;
      word-spacing: 2px;
@@ -18,27 +18,24 @@ table {
   width: 30%;
 }
 
-h1{
-    background-color:rgba(0, 0, 0, 0.9);
-    color: gold;
-    padding: 3px 20px;
-    margin: 0 auto;
-    text-align: center;
-    font-family: "Georgia", serif;
-	font-size:14pt;
-}
-h2,h3{
-    padding: 30px 20px;
-    margin: 0 auto;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.9);
-    font-family: "Georgia", serif;
-}
+
 body {
-  background-image: url(../img/white-background-with-golden-sparkle-wave_1017-23750.jpg);
-  margin: 0;
-  padding: 0;
+  background-image: url(../img/p1.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
+font{
+	
+  font-family: 'Marutya';
+  src: local('Marutya'), local('Marutya'),
 
+  url(/fonts/Marutya.ttf);
+
+}
  
