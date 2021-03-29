@@ -3,11 +3,12 @@
 
 	require_once 'db_connection.php';
 	
-	$fio=$_POST['fio'];
-	$email=filter_var(trim($_POST['email']));
-	$tel=filter_var(trim($_POST['tel']));
+	$fio=antisql($connect, $_POST['fio']);
+	$email=antisql($connect, $_POST['email']);
+	$tel=antisql($connect, $_POST['tel']);
 	$password=$_POST['password'];
 	$pass_conf=$_POST['pass_conf'];
+	
 	
 	if(!$fio||!$email||!$tel||!$password||!$pass_conf)
 	{
@@ -37,7 +38,7 @@
 		exit;
 	}
 	
-	$password=md5($password);
+	$password=md5(antisql($connect, $password));
 	
 	$query=mysqli_query($connect, "INSERT INTO `user` (`id`, `fio`, `email`, `tel`, `password`) VALUES (NULL, '$fio', '$email', '$tel', '$password')");
 	

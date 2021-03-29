@@ -2,8 +2,8 @@
 	session_start();
 	require_once 'db_connection.php';
 	
-	$fio=$_POST['fio'];
-	$pass=md5($_POST['password']);
+	$fio=antisql($connect,$_POST['fio']);
+	$pass=md5(antisql($connect,$_POST['password']));
 	
 	$check_user=mysqli_query($connect, "SELECT * FROM `user` WHERE (`fio`='$fio' OR `email`='$fio') AND `password`='$pass'");
 	if(!$check_user)
