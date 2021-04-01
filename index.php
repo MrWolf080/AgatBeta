@@ -44,9 +44,14 @@
 
         <script src="js/main.js"></script>
         <div class="intro">
-<?php
+            <?php
             if($_SESSION['user'])
+            {
                 echo $_SESSION['user']['fio'];
+                ?>
+                <a href="lk/exit.php">ВЫход</a>
+                <?php
+            }
             ?>
 
             <div class="container">
