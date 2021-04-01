@@ -40,7 +40,7 @@
 	
 	$password=md5(antisql($connect, $password));
 	
-	$query=mysqli_query($connect, "INSERT INTO `user` (`id`, `fio`, `email`, `tel`, `password`) VALUES (NULL, '$fio', '$email', '$tel', '$password')");
+	$query=mysqli_query($connect, "INSERT INTO `user` (`id`, `fio`, `email`, `tel`, `password`,`role`) VALUES (NULL, '$fio', '$email', '$tel', '$password',1)");
 	
 	if(!$query)
 	{
@@ -55,9 +55,10 @@
 	[
 		"id"=>$user['id'],
 		"fio"=>$user['fio'],
-		"email"=>$user['email']
+		"email"=>$user['email'],
+		"role"=>$user['role']
 	];
+	
+	mysqli_close($connect);
 	header('Location: ../../index.php');
-	
-	
 ?>

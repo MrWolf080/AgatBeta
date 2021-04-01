@@ -26,7 +26,13 @@
 	<h1>
 	<p align="left"><big><big>Добро пожаловать в Beauty Studio AgaT</big></big></p>
 	</p>
-	
+	<?php
+	if($_SESSION['user'])
+		if($_SESSION['user']['role']==3)
+		{
+			echo '<a href="settings.php">Настройки сайта</a>';
+		}
+		?>
 	<p align="right">
 	   <?php
 		if($_SESSION['user'])
@@ -53,21 +59,21 @@
     <table>
         <thead>
             <tr>
-                <th scope="col">Сотрудник</th>
+                <th scope="col"><a href="employers.php">Сотрудники</a></th>
             </tr>
         </thead>
     </table>
     <table>
         <thead>
             <tr>
-                <th scope="col">Услуга</th>
+                <th scope="col"><a href="services.php">Услуги</a></th>
             </tr>
         </thead>
     </table>
     <table>
         <thead>
             <tr>
-                <th scope="col">Дата и время</th>
+                <th scope="col"><a href="records.php">Запись</a></th>
             </tr>
         </thead>
     </table>

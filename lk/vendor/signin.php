@@ -25,8 +25,10 @@
 	[
 		"id"=>$user['id'],
 		"fio"=>$user['fio'],
-		"email"=>$user['email']
+		"email"=>$user['email'],
+		"role"=>$user['role']
 	];
 	
+	mysqli_close($connect);
 	header('Location: ../../index.php');
 ?>
