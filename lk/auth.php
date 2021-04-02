@@ -48,7 +48,7 @@
           <br>
            <input type="password" name="password" placeholder="Введите пароль">
           <br>
-         <button type="submit" href="/index.php"><i class="fa fa-unlock"></i><span>Войти</span></button>
+         <button type="submit" href="/index.php" class="button blue"><i class="fa fa-unlock"></i><span>Войти</span></button>
            <p>
                <b>У вас нет аккаунта?</b> - <a href="../lk/reg.php" class="button purple"><i class="fa fa-user-plus"></i>Зарегистрируйтесь</a>
            </p>

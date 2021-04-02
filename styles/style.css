@@ -40,6 +40,8 @@ h6 {
     background: url("../img/intro.jpg") center no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
+    font-size: 50px;
+    margin: 0 auto;
 }
 
 .intro_inner {
@@ -62,10 +64,19 @@ h6 {
 .intro_subtitle {
     font-size: 100px;
     color: #fff;
+    text-align: center;
     font-family: 'Italianno';
 }
 
+.button_grow{
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
 .button_grow:hover {
+    display: block;
+    margin: 0 auto;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -74,6 +85,11 @@ h6 {
     -ms-transform: scale(1.2);
     transform: scale(1.2);
     margin-top: 10px 0;
+}
+
+.intro__authended{
+    margin-top: 0px -15px;
+    font-size: 20px;
 }
 
 
