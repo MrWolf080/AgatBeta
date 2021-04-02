@@ -1,5 +1,5 @@
 <?php
-	require_once 'db_connection.php';
+	require 'db_connection.php';
 	
 	function add_minutes_date($date, $minutes)
 	{

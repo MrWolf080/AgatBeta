@@ -31,6 +31,4 @@
 		}
 	}
 	mysqli_close($connect);
-	header("Location: ../../records.php");
-	exit;
 ?>

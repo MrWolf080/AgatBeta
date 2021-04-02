@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once 'lk/vendor/date.php';
+	require 'lk/vendor/date.php';
 ?>
 <?php
 	if($_SESSION['message'])
@@ -15,8 +15,8 @@
 	{
 		if($_SESSION['user']['role']>1)
 		{
-			echo '<a href="admin/recordsempl.php">???????? ??????? ?? ??????????</a>';
-			echo '<a href="admin/recordsserv.php">???????? ??????? ?? ???????</a>';
+			echo '<a href="admin/recordsempl.php">Показать записи по  мастерам</a>';
+			echo '<a href="admin/recordsserv.php">Показать записи по  услугам</a>';
 		}
 	}
 ?>
@@ -79,7 +79,7 @@
 	<input type="submit" name="check" value="Check time">
 </form>
  <?php
-	if($_POST['date']!=''&&$_POST['service']!=''&&$_POST['empl']!=''&&$_POST=['check']!=null)
+	if($_POST['date']!=''&&$_POST['service']!=''&&$_POST['empl']!=''&&$_POST['check']!=null)
 	{
 		$id_serv=(int)antisql($connect, $_POST['service']);
 		$id_empl=(int)antisql($connect, $_POST['empl']);
@@ -105,7 +105,7 @@
 			}
 		}
 		if(count($time_arr, COUNT_RECURSIVE)==0)
-			echo '????????, ?? ???? ???? ?????? ??????';
+			echo 'Извините, записаться нет возможности';
 		else
 		{
 			echo '<form action="lk/vendor/records.php" method="post">';
