@@ -44,13 +44,6 @@
                 exit;
             }
         ?>
-        <?php
-            if($_SESSION['bad_message'])
-            {
-                echo $_SESSION['bad_message'];
-                unset($_SESSION['bad_message']);
-            }
-        ?>
     </div>
 <form action="" method="post">
     <div class="form">
