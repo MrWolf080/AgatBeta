@@ -1,5 +1,11 @@
 <?php
     session_start();
+    ?>
+
+    <title>Сотрудники</title>
+    <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
+
+    <?php
     require_once 'lk\vendor\db_connection.php';
 
     $count_empl=mysqli_query($connect, "SELECT COUNT(*) FROM `empl`");

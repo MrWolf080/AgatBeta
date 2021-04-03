@@ -1,6 +1,8 @@
 <?php
     session_start();
 ?>
+    <title>Услуги и цены</title>
+    <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
     <body>
         <header class = "header">
             <div class="container">
