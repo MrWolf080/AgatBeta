@@ -10,44 +10,44 @@
 <title>Регистрация</title>
 <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
 <header class = "header">
-	<div class="container">
-		<div class="header__inner">
-			<a class="header__logo" href="../index.php">AgaT</a>
-			<nav class="nav">
-				<a class="nav__link" href="#">О нас</a>
-				<a class="nav__link" href="#">Сотрудники</a>
-				<a class="nav__link" href="#">Галерея</a>
-				<a class="nav__link" href="#">Услуги и цены</a>
-				<a class="nav__link" href="#">Контакты</a>
-				<a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
-					<i class="fab fa-instagram"></i>
-				</a>
-			</nav>
-		</div>
-	</div>
+    <div class="container">
+        <div class="header__inner">
+            <a class="header__logo" href="../index.php">AgaT</a>
+            <nav class="nav">
+                <a class="nav__link" href="#">О нас</a>
+                <a class="nav__link" href="#">Сотрудники</a>
+                <a class="nav__link" href="#">Галерея</a>
+                <a class="nav__link" href="#">Услуги и цены</a>
+                <a class="nav__link" href="#">Контакты</a>
+                <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </nav>
+        </div>
+    </div>
 </header>
 <div class="message">
-	<?php
-		if($_SESSION['good_message'])
-		{
-			echo $_SESSION['good_message'];
-			unset($_SESSION['good_message']);
-		}
-	?>
-	<?php
-		if($_SESSION['user'])
-		{
-			echo 'Вы уже авторизованы';
-			exit;
-		}
-	?>
-	<?php
-		if($_SESSION['bad_message'])
-		{
-			echo $_SESSION['bad_message'];
-			unset($_SESSION['bad_message']);
-		}
-	?>
+    <?php
+        if($_SESSION['good_message'])
+        {
+            echo $_SESSION['good_message'];
+            unset($_SESSION['good_message']);
+        }
+    ?>
+    <?php
+        if($_SESSION['user'])
+        {
+            echo 'Вы уже авторизованы';
+            exit;
+        }
+    ?>
+    <?php
+        if($_SESSION['bad_message'])
+        {
+            echo $_SESSION['bad_message'];
+            unset($_SESSION['bad_message']);
+        }
+    ?>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
@@ -65,18 +65,18 @@
                 <label>Телефон:</label>
                 <input type="text" name="tel" id="phone_2" placeholder="Введите ваш номер телефона" value="<?php if($_SESSION['post']) echo $_SESSION['post']['tel']; ?>">
                 <br>
-                <label>Пароль (4-15 символов):</label>
+                <label>Пароль (4-15 симв):</label>
                 <input type="password" name="password" placeholder="Введите пароль">
                 <br>
                 <label>Подтвердите пароль:</label>
                 <input type="password" name="pass_conf" placeholder="Введите пароль ещё раз">
                 <br>
-				<label>Введите символы с картинки:</label>
-				<img src='vendor/captcha.php' id='capcha-image'>
-				<a href="javascript:void(0);" onclick="document.getElementById('capcha-image').src='vendor/captcha.php?rid=' + Math.random();">Обновить картинку</a>
+                <label>Введите символы с картинки:</label>
+                <img src='vendor/captcha.php' align="center" id='capcha-image'>
+                <a href="javascript:void(0);" onclick="document.getElementById('capcha-image').src='vendor/captcha.php?rid=' + Math.random();">Обновить картинку</a>
                 <input type="text" name="code" placeholder="Введите символы с картинки">
                 <br>
-				
+
             </div>
             <button type="submit" name="reg"><i class="fa fa-user-plus"></i>Зарегистрироваться</button>
             <p color="">
@@ -84,33 +84,33 @@
             </p>
         </div>
     </div>
-	 <script>
-			 $.fn.setCursorPosition = function(pos) {
-		  if ($(this).get(0).setSelectionRange) {
-			$(this).get(0).setSelectionRange(pos, pos);
-		  } else if ($(this).get(0).createTextRange) {
-			var range = $(this).get(0).createTextRange();
-			range.collapse(true);
-			range.moveEnd('character', pos);
-			range.moveStart('character', pos);
-			range.select();
-		  }
-		};
+     <script>
+             $.fn.setCursorPosition = function(pos) {
+          if ($(this).get(0).setSelectionRange) {
+            $(this).get(0).setSelectionRange(pos, pos);
+          } else if ($(this).get(0).createTextRange) {
+            var range = $(this).get(0).createTextRange();
+            range.collapse(true);
+            range.moveEnd('character', pos);
+            range.moveStart('character', pos);
+            range.select();
+          }
+        };
      $("#phone_2").click(function(){$(this).setCursorPosition(3);}).mask("+7(999) 999-99-99");
-	</script>
+    </script>
 </form>
 <?php
     unset($_SESSION['post']);
-	function check_code($code, $cap) 
-	{
+    function check_code($code, $cap)
+    {
 
-		$code = trim($code);
-		$code = md5(md5($code));
-		$cap = $_SESSION['captcha'];
-		$cap = md5(md5($cap));
-		if ($code == $cap){return TRUE;}else{return FALSE;} 
-	}
-	$cap = $_SESSION["captcha"];
+        $code = trim($code);
+        $code = md5(md5($code));
+        $cap = $_SESSION['captcha'];
+        $cap = md5(md5($cap));
+        if ($code == $cap){return TRUE;}else{return FALSE;}
+    }
+    $cap = $_SESSION["captcha"];
     if(isset($_POST['reg']))
     {
         $_SESSION['post']=$_POST;
@@ -121,7 +121,7 @@
         $tel=antisql($connect, $_POST['tel']);
         $password=$_POST['password'];
         $pass_conf=$_POST['pass_conf'];
-		$code=$_POST['code'];
+        $code=$_POST['code'];
 
 
         if($fio==''||$email==''||$tel==''||$password==''||$pass_conf==''||$code=='')
@@ -144,13 +144,13 @@
             echo "<script>window.location.href='reg.php';window.location.replace('reg.php');</script>";
             exit;
         }
-		
-		if (!check_code($code, $cap))
-		{
-			$_SESSION['bad_message']='Вы неправильно ввели символы с картинки';
+
+        if (!check_code($code, $cap))
+        {
+            $_SESSION['bad_message']='Вы неправильно ввели символы с картинки';
             echo "<script>window.location.href='reg.php';window.location.replace('reg.php');</script>";
             exit;
-		}
+        }
 
         $password=md5(antisql($connect, $password));
 

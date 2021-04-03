@@ -3,6 +3,10 @@
 	require_once 'lk/vendor/db_connection.php';
 	
 ?>
+
+<title>Настройки</title>
+<link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
+
 <?php
 	if(!$_SESSION['user']||$_SESSION['user']['role']!=3)
 	{
