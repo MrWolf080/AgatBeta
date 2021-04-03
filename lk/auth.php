@@ -9,41 +9,41 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <title>Вход</title>
 <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
+<header class = "header">
+	<div class="container">
+		<div class="header__inner">
+			<a class="header__logo" href="../index.php">AgaT</a>
+			<nav class="nav">
+				<a class="nav__link" href="#">О нас</a>
+				<a class="nav__link" href="#">Сотрудники</a>
+				<a class="nav__link" href="#">Галерея</a>
+				<a class="nav__link" href="#">Услуги и цены</a>
+				<a class="nav__link" href="#">Контакты</a>
+				<a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
+					<i class="fab fa-instagram"></i>
+				</a>
+			</nav>
+			<!--<button id="login" class="button">Вход / Регистрация</button>-->
+		</div>
+	</div>
+</header>
+<div class="message">
+<?php
+	if($_SESSION['message'])
+	{
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	}
+?>
+<?php
+	if($_SESSION['user'])
+	{
+		echo 'Вы уже авторизованы';
+		exit;
+	}
+?>
+</div>
 <form action="" method="post">
-    <header class = "header">
-            <div class="container">
-                <div class="header__inner">
-                    <a class="header__logo" href="../index.php">AgaT</a>
-                    <nav class="nav">
-                        <a class="nav__link" href="#">О нас</a>
-                        <a class="nav__link" href="#">Сотрудники</a>
-                        <a class="nav__link" href="#">Галерея</a>
-                        <a class="nav__link" href="#">Услуги и цены</a>
-                        <a class="nav__link" href="#">Контакты</a>
-                        <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </nav>
-                    <!--<button id="login" class="button">Вход / Регистрация</button>-->
-                </div>
-            </div>
-        </header>
-    <div class="message">
-        <?php
-            if($_SESSION['message'])
-            {
-                echo $_SESSION['message'];
-                unset($_SESSION['message']);
-            }
-        ?>
-		<?php
-			if($_SESSION['user'])
-            {
-                echo 'Вы уже авторизованы';
-				exit;
-            }
-		?>
-    </div>
     <div class="form">
         <div class="label_auth_reg">Вход</div>
         <div class="haveacc">

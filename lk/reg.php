@@ -3,8 +3,6 @@
 ?>
 <link rel="stylesheet" href="../styles/stylelog.css" type="text/css">
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marck+Script" />
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Italianno" />
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marck+Script" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -12,45 +10,45 @@
 <title>Регистрация</title>
 <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
 <header class = "header">
-            <div class="container">
-                <div class="header__inner">
-                    <a class="header__logo" href="../index.php">AgaT</a>
-                    <nav class="nav">
-                        <a class="nav__link" href="#">О нас</a>
-                        <a class="nav__link" href="#">Сотрудники</a>
-                        <a class="nav__link" href="#">Галерея</a>
-                        <a class="nav__link" href="#">Услуги и цены</a>
-                        <a class="nav__link" href="#">Контакты</a>
-                        <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </nav>
-                </div>
-            </div>
-        </header>
-    <div class="message">
-        <?php
-            if($_SESSION['good_message'])
-            {
-                echo $_SESSION['good_message'];
-                unset($_SESSION['good_message']);
-            }
-        ?>
-		<?php
-			if($_SESSION['user'])
-            {
-                echo 'Вы уже авторизованы';
-				exit;
-            }
-		?>
-		<?php
-            if($_SESSION['bad_message'])
-            {
-                echo $_SESSION['bad_message'];
-                unset($_SESSION['bad_message']);
-			}
-		?>
-    </div>
+	<div class="container">
+		<div class="header__inner">
+			<a class="header__logo" href="../index.php">AgaT</a>
+			<nav class="nav">
+				<a class="nav__link" href="#">О нас</a>
+				<a class="nav__link" href="#">Сотрудники</a>
+				<a class="nav__link" href="#">Галерея</a>
+				<a class="nav__link" href="#">Услуги и цены</a>
+				<a class="nav__link" href="#">Контакты</a>
+				<a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
+					<i class="fab fa-instagram"></i>
+				</a>
+			</nav>
+		</div>
+	</div>
+</header>
+<div class="message">
+	<?php
+		if($_SESSION['good_message'])
+		{
+			echo $_SESSION['good_message'];
+			unset($_SESSION['good_message']);
+		}
+	?>
+	<?php
+		if($_SESSION['user'])
+		{
+			echo 'Вы уже авторизованы';
+			exit;
+		}
+	?>
+	<?php
+		if($_SESSION['bad_message'])
+		{
+			echo $_SESSION['bad_message'];
+			unset($_SESSION['bad_message']);
+		}
+	?>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
 <form action="" method="post">
