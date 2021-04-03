@@ -60,13 +60,11 @@
 
         <script src="js/main.js"></script>
         <div class="intro">
-		 <?php
+         <?php
             if($_SESSION['good_message'])
             {
                 echo $_SESSION['good_message'];
                 unset($_SESSION['good_message']);
-       
-                
             }
             ?>
             <div class="container">
