@@ -77,9 +77,9 @@
 								$fio=mysqli_fetch_assoc(mysqli_query($connect, "SELECT `name` FROM `service` WHERE `id`='$id_empl'"))['name'];
 								echo $fio;
 							}
-							else if(isset($_SESSION['post']['serv']))
+							else if(isset($_SESSION['post_serv']['serv']))
 							{ 
-								$id_empl=antisql($connect,$_SESSION['post']['serv']);
+								$id_empl=antisql($connect,$_SESSION['post_serv']['serv']);
 								$fio=mysqli_fetch_assoc(mysqli_query($connect, "SELECT `name` FROM `service` WHERE `id`='$id_empl'"))['name'];
 								echo $fio;
 							}
