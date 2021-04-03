@@ -20,16 +20,20 @@
    <header class = "header">
             <div class="container">
                 <div class="header__inner">
-                    <a class="header__logo" href="../index.php">AgaT</a>
+                    <a class="header__logo" href="index.php">AgaT</a>
                     <nav class="nav">
                         <a class="nav__link" href="#">О нас</a>
-                        <a class="nav__link" href="#">Сотрудники</a>
+                        <a class="nav__link" href="employers.php">Сотрудники</a>
                         <a class="nav__link" href="#">Галерея</a>
                         <a class="nav__link" href="#">Услуги и цены</a>
                         <a class="nav__link" href="#">Контакты</a>
                         <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
+                        <?php
+                            if(!$_SESSION['user'])
+                            {
+                        ?>
                         <a id="login" class="button blue" href="lk/auth.php">
                             <i class="fa fa-unlock"></i>
                             <span>Войти</span>
@@ -38,34 +42,55 @@
                             <i class="fa fa-user-plus"></i>
                             <span>Зарегистрироваться</span>
                         </a>
+                        <?php
+                            }
+                            else
+                            {
+                            ?>
+                                <a id="login" class="button purple" href="lk/exit.php">
+                                    <i class="fa fa-unlock"></i>
+                                     <span>Выйти</span>
+                                </a>
+                            <?php
+                            }
+                        ?>
                     </nav>
                 </div>
             </div>
         </header>
-    <div class="content__reg"> </div>
+    <div class="content__records">
     <?php require_once 'lk/vendor/date.php'; ?>
         <?php
-    if($_SESSION['message'])
-    {
-        echo $_SESSION['message'];
-        unset($_SESSION['message']);
-    }
-?>
+            if($_SESSION['message'])
+            {
+                echo $_SESSION['message'];
+                unset($_SESSION['message']);
+            }
+        ?>
             <?php
     if($_SESSION['user'])
     {
         if($_SESSION['user']['role']>1)
         {
-            echo '<a href="admin/recordsempl.php">???????? ??????? ?? ??????????</a>';
-            echo '<a href="admin/recordsserv.php">???????? ??????? ?? ???????</a>';
-        }
+            ?>
+            <h2>Открыть записи сортированные по:</h2>
+            <a href="admin/recordsempl.php" class="admin__buttons"> сотрудникам</a>
+            <a href="admin/recordsserv.php" class="admin__buttons">услугам</a>
+        <? }
     }
 ?>
                 <form name='qqq' action="" method="post">
+                   <div class ="content__records__text">Выберите нужную вам:</div>
+                   <table>
+                   <tr><th>дату</th><th>услугу</th><th>мастера</th></tr>
+                   <tr>
+                   <td>
                     <input type="date" name="date" value="<?php
                                             if(isset($_POST['date']))
                                                 echo $_POST['date'];
-                                        ?>">
+                                                          ?>"></td>
+                                    <td>
+                                    <div class="drop__down__list">
                     <select name="service" onChange='document.qqq.submit();'>
                         <option value="<?php
                             if(isset($_POST['service']))
@@ -89,7 +114,9 @@
                     echo '<option value="'.$id_serv.'" name="'.$name.'">'.$name.'</option>';
                 }
             ?>
-                    </select>
+                                        </select></div></td>
+                                        <td>
+                                        <div class="drop__down__list">
                     <select name='empl'>
                         <option value="<?php
                             if(isset($_POST['empl']))
@@ -116,7 +143,10 @@
                 }
             ?>
                     </select>
-                    <input type="submit" name="check" value="Check time"> </form>
+                    </div></td>
+                       </tr>
+                    </table>
+                    <input type="submit" name="check" value="Выбрать время"> </form>
                 <?php
     if($_POST['date']!=''&&$_POST['service']!=''&&$_POST['empl']!=''&&$_POST['check']!=null)
     {
@@ -153,12 +183,13 @@
             echo '<input type="hidden" name="id_serv" value="'.$id_serv.'">';
             echo '<input type="hidden" name="id_empl" value="'.$id_empl.'">';
             echo '<input type="hidden" name="date" value="'.$date.'">';
-            echo '<input type="submit" name="rec" value="Make record">';
+            echo '<input type="submit" name="rec" value="Записаться">';
             echo '</form>';
         }
     }
     mysqli_close($connect);
  ?>
+    </div>
 </body>
 
 </html>

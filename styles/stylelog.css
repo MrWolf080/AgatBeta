@@ -85,11 +85,35 @@
     opacity: 1;
 }
 
+
 /* REGISTRATION */
-.content__reg{
-    margin-top: 100px;
-    background-color: aqua;
+
+.content__records {
+    top: 100px;
+    background-color: hsla(10, 66%, 77%, .4);
+    display: inline-block;
+    vertical-align: middle;
+    position: relative; min-height: 500px;
+    max-width: 900px;
+    margin: 0 auto;
+    vertical-align: middle;
+    display: table;
+    margin: 0 auto;
 }
+
+.content__records:hover {
+    box-shadow: 15px 15px 0px rgba(1, 1, 1, 1);
+}
+
+.content__records__text{
+    font-family: 'Marck Script';
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
 
 /* Instagram */
 
@@ -122,13 +146,16 @@
 }
 
 body {
-    background-image: url(../img/bgr1.jpg);
-    margin: 0;
-    padding: 0;
-    background-repeat: repeat;
+    font-family: 'Tenor Sans';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: url("../img/bgr2.jpg") center no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
-    font-family: 'Tenor Sans';
+    margin: 0 auto;
 }
 
 input {
@@ -178,6 +205,7 @@ button[type=submit] {
     background-color: #0d8aee;
     text-transform: none;
     font-family: 'Tenor Sans';
+
 }
 
 button[type=submit]:hover {
@@ -263,7 +291,6 @@ button[type=submit]:hover:after {
 }
 
 
-
 /* HAVEACC */
 
 .haveacc {
@@ -292,69 +319,29 @@ button[type=submit]:hover:after {
     margin-top: 100px;
 }
 
+.admin__buttons {
+    background-color: hsl(10, 66%, 77%);
+    margin: 10px;
+    font-size: 20px;
+}
+
 
 /* FORM */
 
 .form {
-
     justify-content: center;
     font-family: 'Tenor Sans';
     transform: translateY(-20%);
 }
 
+/* ALL STUFF FOR BACK-END BAEUTY */
 
-/* POPUP */
-/*
-.popup {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    top: 0;
-    left: 0;
-    opacity: 0;
-    visibility: hidden;
+.recordsempl__container{
+    background-color:  aqua;
+    max-width: 1000px;
+    margin: 0 auto;
 }
-.popup:target{
-    opacity: 1;
-    visibility: visible;
-}
+.button_for__admin{
 
-.popup__body {
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 10px;
-}
 
-.popup__content {
-    background-color: #fff;
-    color: #000;
-    max-width: 800px;
-    padding: 30px;
-    position: relative;
 }
-
-.popup__close {
-    position: absolute;
-    right: 10px;
-    top: 1px;
-    bottom: 5px;
-    font-size: 40px;
-    text-decoration: none;
-}
-
-.popup__title {
-    font-family: 'Marck Script';
-    font-size: 40px;
-    margin: 0px 0px 1em 0px;
-    color: red;
-    font-weight: 800;
-}
-
-.popup__text {
-    font-family: 'Tenor Sans';
-    font-size: 17px;
-}
-*/

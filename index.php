@@ -18,12 +18,12 @@
         <header class = "header">
             <div class="container">
                 <div class="header__inner">
-                    <a class="header__logo">AgaT</a>
+                    <a href="index.php" class="header__logo">AgaT</a>
                     <nav class="nav">
                         <a class="nav__link" href="#">О нас</a>
                         <a class="nav__link" href="employers.php">Сотрудники</a>
                         <a class="nav__link" href="#">Галерея</a>
-                        <a class="nav__link" href="#">Услуги и цены</a>
+                        <a class="nav__link" href="/services.php">Услуги и цены</a>
                         <a class="nav__link" href="#">Контакты</a>
                         <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
                             <i class="fab fa-instagram"></i>
