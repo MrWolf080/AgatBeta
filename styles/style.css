@@ -116,6 +116,7 @@ h6 {
     font-weight: 700;
     font-family: 'Italianno';
     color: #fff;
+    text-decoration: none;
 }
 
 
@@ -159,7 +160,7 @@ h6 {
 }
 
 .nav__link:hover {
-    color: #cd8d2c;
+    color: hsl(10, 66%, 77%);;
 }
 
 .nav__link:hover:after {

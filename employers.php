@@ -1,6 +1,6 @@
 <?php
     session_start();
-    ?>
+?>
 
     <title>Сотрудники</title>
     <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
@@ -24,8 +24,8 @@
     while( $arr = mysqli_fetch_assoc( $query ) )
     {
         ?>
-        <div class="all"><ul>
-        <div class="1"><img src="data:image/*;base64,<? echo base64_encode($arr['photo']); ?>" /><br></div>
+        <div class="employers__content">
+        <div class="1"><img height="300px" src="data:image/*;base64,<? echo base64_encode($arr['photo']); ?>" /><br></div>
 
         <div class="2"><? echo $arr['fio']; ?></div>
         <div class="3"><? echo $arr['email']; ?></div>
@@ -44,7 +44,7 @@
                 $id_serv=$ids['id_serv'];
                 $name=mysqli_fetch_assoc(mysqli_query($connect, "SELECT `name` FROM `service` WHERE `id`='$id_serv'"))['name'];
                 ?>
-            <div class="6"><? echo $name; ?></div></ul>
+            <div class="6"><? echo $name; ?></div>
                 <?
             }
 

@@ -20,11 +20,11 @@
                 <div class="header__inner">
                     <a href="index.php" class="header__logo">AgaT</a>
                     <nav class="nav">
-                        <a class="nav__link" href="#">О нас</a>
+                        <a class="nav__link" href="#about__us">О нас</a>
                         <a class="nav__link" href="employers.php">Сотрудники</a>
-                        <a class="nav__link" href="#">Галерея</a>
+                        <a class="nav__link" href="#gallery">Галерея</a>
                         <a class="nav__link" href="/services.php">Услуги и цены</a>
-                        <a class="nav__link" href="#">Контакты</a>
+                        <a class="nav__link" href="#footer">Контакты</a>
                         <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
@@ -60,7 +60,7 @@
 
         <script src="js/main.js"></script>
         <div class="intro">
-		 <?php
+         <?php
             if($_SESSION['good_message'])
             {
                 echo $_SESSION['good_message'];
@@ -99,6 +99,11 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section>
+            <div id="gallery" class="gallery">
+                <h1>Галерея в разработке</h1>
             </div>
         </section>
         <footer class="footer" id="footer">
