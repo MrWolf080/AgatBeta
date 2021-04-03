@@ -65,8 +65,6 @@
             {
                 echo $_SESSION['good_message'];
                 unset($_SESSION['good_message']);
-       
-                
             }
             ?>
             <div class="container">

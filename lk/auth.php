@@ -36,6 +36,13 @@
                 unset($_SESSION['message']);
             }
         ?>
+		<?php
+			if($_SESSION['user'])
+            {
+                echo 'Вы уже авторизованы';
+				exit;
+            }
+		?>
     </div>
     <div class="form">
         <div class="label_auth_reg">Вход</div>
