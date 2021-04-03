@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <title>Вход</title>
 <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
-<form action="vendor/signin.php" method="post">
+<form action="" method="post">
     <header class = "header">
             <div class="container">
                 <div class="header__inner">
@@ -42,13 +42,13 @@
         <div class="haveacc">
           <label>ФИО или email</label>
           <br>
-          <input type="text" name="fio" placeholder="Введите свой логин">
+          <input type="text" name="fio" placeholder="Введите свой логин" value="<?if($_SESSION['post']) echo $_SESSION['post']['fio'];?>">
           <br>
           <label>Пароль</label>
           <br>
            <input type="password" name="password" placeholder="Введите пароль">
           <br>
-         <button type="submit" href="/index.php"><i class="fa fa-unlock"></i><span>Войти</span></button>
+         <button type="submit" name="auth" class="button blue"><i class="fa fa-unlock"></i><span>Войти</span></button>
            <p>
                <b>У вас нет аккаунта?</b> - <a href="../lk/reg.php" class="button purple"><i class="fa fa-user-plus"></i>Зарегистрируйтесь</a>
            </p>
@@ -69,3 +69,41 @@
         </div>
     </div>-->
 </form>
+<?php
+	unset($_SESSION['post']);
+	if(isset($_POST['auth']))
+	{
+		$_SESSION['post']=$_POST;
+		require_once 'vendor/db_connection.php';
+
+		$fio=$_POST['fio'];
+		$pass=md5($_POST['password']);
+
+		$check_user=mysqli_query($connect, "SELECT * FROM `user` WHERE (`fio`='$fio' OR `email`='$fio') AND `password`='$pass'");
+		if(!$check_user)
+		{
+			$_SESSION['message']='Неизвестная ошибка';
+			echo "<script>window.location.href='auth.php';window.location.replace('auth.php');</script>";
+			exit;
+		}
+
+		if(!(mysqli_num_rows($check_user)>0))
+		{
+			$_SESSION['message']='Ошибка: неверны ФИО, email или пароль';
+			echo "<script>window.location.href='auth.php';window.location.replace('auth.php');</script>";
+			exit;
+		}
+
+		$user=mysqli_fetch_assoc($check_user);
+		$_SESSION['user']=
+		[
+			"id"=>$user['id'],
+			"fio"=>$user['fio'],
+			"email"=>$user['email'],
+			"role"=>$user['role']
+		];
+
+		mysqli_close($connect);
+		echo "<script>window.location.href='../index.php';window.location.replace('../index.php');</script>";
+	}
+?>

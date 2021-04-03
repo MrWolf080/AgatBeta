@@ -1,15 +1,57 @@
-<?php
-	session_start();
-	require 'lk/vendor/date.php';
-?>
-<?php
-	if($_SESSION['message'])
-	{
-		echo $_SESSION['message'];
-		unset($_SESSION['message']);
-	}
-?>
+<? session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Запись</title>
+<link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
+<link rel="stylesheet" href="styles/stylelog.css">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Italianno" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marck+Script" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+   <header class = "header">
+            <div class="container">
+                <div class="header__inner">
+                    <a class="header__logo" href="../index.php">AgaT</a>
+                    <nav class="nav">
+                        <a class="nav__link" href="#">О нас</a>
+                        <a class="nav__link" href="#">Сотрудники</a>
+                        <a class="nav__link" href="#">Галерея</a>
+                        <a class="nav__link" href="#">Услуги и цены</a>
+                        <a class="nav__link" href="#">Контакты</a>
+                        <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a id="login" class="button blue" href="lk/auth.php">
+                            <i class="fa fa-unlock"></i>
+                            <span>Войти</span>
+                        </a>
+                        <a id="register" class="button purple" href="lk/reg.php">
+                            <i class="fa fa-user-plus"></i>
+                            <span>Зарегистрироваться</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    <div class="content__reg"> </div>
+    <?php require_once 'lk/vendor/date.php'; ?>
+        <?php
+    if($_SESSION['message'])
+    {
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+		?>
+    
 <?php
 	if($_SESSION['user'])
 	{
@@ -120,3 +162,6 @@
 	}
 	mysqli_close($connect);
  ?>
+</body>
+</html>
+
