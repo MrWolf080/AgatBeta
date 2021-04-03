@@ -174,7 +174,7 @@
             }
         }
         if(count($time_arr, COUNT_RECURSIVE)==0)
-            echo '????????, ?? ???? ???? ?????? ??????';
+            echo 'Извините, нет свободного времени';
         else
         {
             echo '<form action="lk/vendor/records.php" method="post">';
