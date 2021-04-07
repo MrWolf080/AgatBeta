@@ -1,32 +1,39 @@
 <?php
     session_start();
 ?>
-<link rel="stylesheet" href="../styles/stylelog.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Italianno" />
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marck+Script" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<title>Регистрация</title>
-<link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
-<header class = "header">
-    <div class="container">
-        <div class="header__inner">
-            <a class="header__logo" href="../index.php">AgaT</a>
-            <nav class="nav">
-                <a class="nav__link" href="#">О нас</a>
-                <a class="nav__link" href="#">Сотрудники</a>
-                <a class="nav__link" href="#">Галерея</a>
-                <a class="nav__link" href="#">Услуги и цены</a>
-                <a class="nav__link" href="#">Контакты</a>
-                <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </nav>
-        </div>
-    </div>
-</header>
-<div class="message">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="shortcut icon" href="/img/titlepic.png" >
+    <link rel="stylesheet" href="../styles/style_reg.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Italianno" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marck+Script" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+</head>
+<body>
+    <div class="body__bgr">
+        <header class = "header">
+            <div class="container">
+                <div class="header__inner">
+                    <a class="header__logo" href="../index.php">AgaT</a>
+                    <nav class="nav">
+                        <a class="nav__link" href="../index.php#about__us">О нас</a>
+                        <a class="nav__link" href="../employers.php">Сотрудники</a>
+                        <a class="nav__link" href="../records.php">Записаться</a>
+                        <a class="nav__link" href="../services.php">Услуги и цены</a>
+                        <a class="nav__link" href="#footer">Контакты</a>
+                        <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="message">
     <?php
         if($_SESSION['good_message'])
         {
@@ -56,7 +63,7 @@
     <div class="label_auth_reg">Регистрация</div>
         <div class="haveacc">
             <div align="right">
-                <label>ФИО <i>(полностью)</i>:</label>
+                <label>ФИО:</label>
                 <input type="text" name="fio" placeholder="Введите свое полное имя" value="<?php if($_SESSION['post']) echo $_SESSION['post']['fio']; ?>">
                 <br>
                 <label>Почта:</label>
@@ -65,22 +72,23 @@
                 <label>Телефон:</label>
                 <input type="text" name="tel" id="phone_2" placeholder="Введите ваш номер телефона" value="<?php if($_SESSION['post']) echo $_SESSION['post']['tel']; ?>">
                 <br>
-                <label>Пароль (4-15 симв):</label>
-                <input type="password" name="password" placeholder="Введите пароль">
+                <label>Пароль:</label>
+                <input type="password" name="password" placeholder="Введите пароль (4-15 символов)">
                 <br>
                 <label>Подтвердите пароль:</label>
                 <input type="password" name="pass_conf" placeholder="Введите пароль ещё раз">
                 <br>
-                <label>Введите символы с картинки:</label>
-                <img src='vendor/captcha.php' align="center" id='capcha-image'>
-                <a href="javascript:void(0);" onclick="document.getElementById('capcha-image').src='vendor/captcha.php?rid=' + Math.random();">Обновить картинку</a>
+                <div class="capcha">
+                    <a href="javascript:void(0);" onclick="document.getElementById('capcha-image').src='vendor/captcha.php?rid=' + Math.random();" class="capcha__link">Обновить капчу</a>
+                    <img src='vendor/captcha.php' id='capcha-image'>
                 <input type="text" name="code" placeholder="Введите символы с картинки">
+                </div>
                 <br>
 
             </div>
-            <button type="submit" name="reg"><i class="fa fa-user-plus"></i>Зарегистрироваться</button>
+            <button type="submit" name="reg" class="button purple"><i class="fa fa-user-plus"></i>Зарегистрироваться</button>
             <p color="">
-                <b>У вас уже есть аккаунт?</b> - <a href="auth.php" class="button purple"><i class="fa fa-unlock"></i>Авторизуйтесь</a>
+                <b>У вас уже есть аккаунт?</b> - <a href="auth.php" class="button blue"><i class="fa fa-unlock"></i>Авторизуйтесь</a>
             </p>
         </div>
     </div>
@@ -99,7 +107,8 @@
      $("#phone_2").click(function(){$(this).setCursorPosition(3);}).mask("+7(999) 999-99-99");
     </script>
 </form>
-<?php
+  </div><!-- close div class body__bgr-->
+   <?php
     unset($_SESSION['post']);
     function check_code($code, $cap)
     {
@@ -177,3 +186,24 @@
         echo "<script>window.location.href='../index.php';window.location.replace('../index.php');</script>";
     }
 ?>
+<footer class="footer" id="footer">
+            <div class="">
+                <div class="footer__inner">
+                   <table><tr>
+                       <td><a class="footer__logo" href="/index.php">AgaT</a></td>
+                    <td><div class="footer__text">
+                        Каждая женщина уникальна и индивидуальна.<br>А наши специалисты помогут вам ухаживать за вашей природной красотой.
+                    </div></td>
+                    <td><div class="footer__text">
+                        Подписывайтесь на наш инстаграм:
+                    </div><a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank" >
+                            <i class="fab fa-instagram"></i>
+                    </a></td>
+                       <td><div class="footer__phone" align="right">+7(908)517-73-00</div><div class="footer__adress" align="right">Ростов-на-Дону ул. Пулковская 36</div></td>
+                       </tr></table>
+                </div>
+            </div>
+
+        </footer>
+</body>
+</html>

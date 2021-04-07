@@ -40,6 +40,8 @@ h6 {
     background: url("../img/intro.jpg") center no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
+    font-size: 50px;
+    margin: 0 auto;
 }
 
 .intro_inner {
@@ -62,10 +64,19 @@ h6 {
 .intro_subtitle {
     font-size: 100px;
     color: #fff;
+    text-align: center;
     font-family: 'Italianno';
 }
 
+.button_grow {
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
 .button_grow:hover {
+    display: block;
+    margin: 0 auto;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -76,6 +87,9 @@ h6 {
     margin-top: 10px 0;
 }
 
+.intro__authended {
+    font-size: 20px;
+}
 
 
 /* header style */
@@ -101,6 +115,7 @@ h6 {
     font-weight: 700;
     font-family: 'Italianno';
     color: #fff;
+    text-decoration: none;
 }
 
 
@@ -134,7 +149,7 @@ h6 {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #cd8d2c;
+    background-color: hsl(10, 66%, 77%);
     opacity: 0;
     position: absolute;
     top: 100%;
@@ -144,7 +159,7 @@ h6 {
 }
 
 .nav__link:hover {
-    color: #cd8d2c;
+    color: hsl(10, 66%, 77%);
 }
 
 .nav__link:hover:after {
@@ -270,12 +285,33 @@ h6 {
 
 /* SECTION */
 
+.message{
+	text-align:center;
+}
+
+.settings {
+    transform: translateY(-50%);
+    margin: 0 auto;
+}
+
+.a__title {
+    margin: 30px 0;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
 .section {
     padding: 80px 0;
     width: 100%;
     max-width: 1500 px;
-    background-color: #333;
-     background-image: url("../img/bgr5.jpg");
+    background-image: url("../img/bgr5.jpg");
+}
+.section1 {
+    padding: 80px 0;
+    width: 100%;
+    max-width: 1500 px;
+    background-image: url("../img/bgr11.jpg");
 }
 
 .section__header {
@@ -301,6 +337,16 @@ h6 {
     font-size: 15px;
     color: #333;
     font-family: 'Tenor Sans';
+    width: 500px;
+    margin-left: 80PX;
+}
+
+.section__text__galery{
+	font-size: 15px;
+    color: #333;
+    font-family: 'Tenor Sans';
+    width: 500px;
+    margin-left: 350PX;
 }
 
 .grow {
@@ -319,12 +365,84 @@ h6 {
 }
 
 
+/* GALLERY */
+.works {
+    display: flex;
+}
+
+.works__col {
+    flex: 1 1 0;
+}
+
+.works__item {
+    position: relative;
+
+    background: linear-gradient(to bottom, #f38181, #333);
+}
+
+.works__item:hover .works__image {
+    opacity: .1;
+}
+
+.works__item:hover .works__info {
+    opacity: 1;
+}
+
+.works__image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+
+    transition: opacity .2s linear;
+}
+
+.works__info {
+    width: 100%;
+    padding: 0 15px;
+
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+
+    transform: translate3d(0, -50%, 0);
+    transition: opacity .2s linear;
+}
+
+.works__title {
+    margin-bottom: 5px;
+
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.works__text {
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+
 /* FOOTER */
 
 .footer {
     padding-top: 50px;
     background-color: #333;
     padding-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+td {
+    font-size: 0.8em;
+    padding: 5px 10px;
 }
 
 .footer__logo {
@@ -338,10 +456,10 @@ h6 {
     font-size: 15px;
     color: #fff;
     font-family: 'Tenor Sans';
+    max-width: 400px;
 }
 
 .footer__inner {
-    max-width: 300px;
     padding-bottom: 20px;
 }
 
@@ -358,6 +476,16 @@ h6 {
     font-size: 14px;
     color: #fff;
     text-transform: uppercase;
+}
+
+.footer__phone {
+    font-size: 30px;
+    text-align: right;
+}
+
+.footer__adress {
+    color: #fff;
+    font-size: 14px;
 }
 
 @media (max-width: 990px) {
@@ -408,9 +536,6 @@ h6 {
     .section {
         padding: 40px 0;
     }
-    .section--devices {
-        padding-bottom: 0;
-    }
     /* Footer */
     .footer__col--second,
     .footer__col--third {
@@ -439,9 +564,4 @@ h6 {
     .section__title:after {
         margin: 20px auto;
     }
-}
-
-.galerey td img {
-    width: 320px;
-    margin: 0 auto;
 }

@@ -1,0 +1,490 @@
+/* HEADER */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    max-height: 250px;
+    margin: auto;
+}
+
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: 10px;
+    background-color: hsla(0, 0%, 20%, 0.6);
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    font-size: 70px;
+    font-weight: 700;
+    font-family: 'Italianno';
+    color: #fff;
+    z-index: 0;
+    text-decoration: none;
+}
+
+.header__logo:hover {
+    color: hsl(10, 66%, 77%);
+    text-decoration-style: solid;
+}
+
+
+/* links / navigation */
+
+.nav {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.nav a {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.nav__link {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.25s linear;
+    position: relative;
+}
+
+.nav__link:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: hsl(10, 66%, 77%);
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: opacity 0.25s linear;
+}
+
+.nav__link:hover {
+    color: hsl(10, 66%, 77%);
+}
+
+.nav__link:hover:after {
+    opacity: 1;
+}
+
+
+/* Instagram */
+
+.instagram {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.instagram__item {
+    width: 33%;
+    border-right: 1px solid white;
+}
+
+.instagram__item img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.fab.fa-instagram {
+    font-size: 48px;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tenor Sans';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background: url("../img/bgr10.jpg") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    border: 0;
+    width: 100%;
+    max-width: 300px;
+    align-items: left;
+    padding-right: 15px;
+}
+
+form {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.label_auth_reg {
+    font-family: 'Marck Script';
+    font-size: 70px;
+    margin: 0 auto;
+    color: #fff;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    color: hsl(10, 66%, 77%);
+    transform: translateY(55%);
+    position: relative;
+}
+
+
+/* sign up button */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css');
+button[type=submit] {
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 12px 16px;
+    border-radius: 100px;
+    color: #fff;
+    background-color: #0d8aee;
+    text-transform: none;
+    font-family: 'Tenor Sans';
+}
+
+button[type=submit]:hover {
+    background: #39a1f4;
+    transition: opacity 0.25s linear;
+}
+
+button[type=submit] i {
+    margin-right: 4px;
+}
+
+button[type=submit]:hover:after {
+    opacity: 1;
+}
+
+
+/* sign up button */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css');
+.button {
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 12px 16px;
+    border-radius: 100px;
+    color: #fff;
+    text-transform: none;
+    font-family: 'Tenor Sans';
+}
+
+.button i {
+    margin-right: 4px;
+}
+
+.button + .button {
+    margin-left: 6px;
+}
+
+.button.blue {
+    background: #2196F3;
+}
+
+.button.purple {
+    background: #9b59b6;
+}
+
+.button:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover.blue {
+    background: #39a1f4;
+}
+
+.button:hover.purple {
+    background: #a66bbe;
+}
+
+.button:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button:active.blue {
+    background: #0d8aee;
+}
+
+.button:active.purple {
+    background: #8f4bab;
+}
+
+.button:hover {
+    background: #333;
+    transition: opacity 0.25s linear;
+}
+
+.button:hover:after {
+    opacity: 1;
+}
+
+
+/* HAVEACC */
+
+.haveacc {
+    font-size: 15px;
+    /*background-color: #d7a9bc;*/
+    background-color: hsla(10, 66%, 77%, .4);
+    max-width: 500px;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transform: translateY(20%);
+}
+
+.haveacc:hover {
+    box-shadow: 15px 15px 0px rgba(1, 1, 1, 1);
+}
+
+.elem {
+    align-self:
+}
+
+.message {
+    background-color: #91da7e;
+    transform: translateY(20%);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.mess {
+    background-color: hsl(10, 66%, 77%);
+    margin-bottom: 20%;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.admin__buttons {
+    background-color: hsl(10, 66%, 77%);
+    margin: 10px;
+    font-size: 20px;
+}
+
+
+/* EMPLOYERS */
+
+.services__logo {
+    font-family: 'Marck Script';
+    font-size: 55px;
+    text-align: center;
+    color: hsl(10, 66%, 77%);
+
+}
+
+.services__content {
+    padding: 0, 15, 15, 15;
+    margin-top: 0;
+}
+
+.services__table {
+    width: 70%;
+    margin: 2% auto;
+}
+.serv1{
+    font-family: 'Tenor Sans';
+    color: hsl(10, 66%, 77%);
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.serv2{
+    font-family: 'Tenor Sans';
+    font-size: 21px;
+    text-align: center;
+}
+
+.serv3{
+    font-family: 'Tenor Sans';
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.serv4{
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+}
+
+th{width: 20%;}
+
+.serv5{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.serv6{
+    font-size: 14px;
+    color: #333;
+}
+
+
+.empl__list__container {
+    text-align: center;
+}
+
+.empl_list {
+    max-width: 200px;
+    text-align: left;
+}
+
+.grow {
+    border: 10px solid #333;
+}
+
+.grow:hover {
+    border: 20px solid #333;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.employers__fio {
+    font-family: 'Tenor Sans';
+    font-size: 20px;
+    color: hsl(10, 66%, 77%);
+    font-weight: 700;
+}
+
+.employers__email {
+    font-family: 'Tenor Sans';
+    font-size: 14px;
+    color: #333;
+}
+
+.employers__descr {
+    font-family: 'Marck Script';
+    font-size: 25px;
+    text-align: center;
+    color: #fff;
+    background-color: aqua;
+}
+
+.change_delete {
+    margin: 10% auto;
+    padding-left: 40%;
+}
+
+.message{
+    margin-top: 10%;
+    text-align: center;
+    font-size: 25px;
+}
+
+/* FORM */
+
+.form {
+    justify-content: center;
+    font-family: 'Tenor Sans';
+    transform: translateY(-20%);
+}
+
+
+/* FOOTER */
+
+.footer {
+    padding-top: 50px;
+    background-color: #333;
+    padding-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+td {
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+.footer__logo {
+    font-size: 50px;
+    font-weight: 700;
+    color: #cd8d2c;
+    font-family: 'Italianno';
+}
+
+.footer__text {
+    font-size: 15px;
+    color: #fff;
+    font-family: 'Tenor Sans';
+    max-width: 400px;
+}
+
+.footer__social-content a {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.footer__title {
+    margin: 30px 0;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+h7 {
+    color: #fff;
+}
+
+.footer__phone {
+    font-size: 30px;
+    text-align: right;
+    color: #fff;
+}
+.footer__adress{
+    color: #fff;
+    font-size: 14px;
+}

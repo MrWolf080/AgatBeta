@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Запись</title>
 <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
-<link rel="stylesheet" href="styles/stylelog.css">
+<link rel="stylesheet" href="styles/style_records.css">
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Italianno" />
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marck+Script" />
@@ -22,11 +22,11 @@
                 <div class="header__inner">
                     <a class="header__logo" href="index.php">AgaT</a>
                     <nav class="nav">
-                        <a class="nav__link" href="#">О нас</a>
+                        <a class="nav__link" href="index.php#about__us">О нас</a>
                         <a class="nav__link" href="employers.php">Сотрудники</a>
-                        <a class="nav__link" href="#">Галерея</a>
-                        <a class="nav__link" href="#">Услуги и цены</a>
-                        <a class="nav__link" href="#">Контакты</a>
+                        <a class="nav__link" href="records.php">Записаться</a>
+                        <a class="nav__link" href="services.php">Услуги и цены</a>
+                        <a class="nav__link" href="#footer">Контакты</a>
                         <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
@@ -57,16 +57,27 @@
                     </nav>
                 </div>
             </div>
-        </header>
-    <div class="content__records">
+    </header>
     <?php require_once 'lk/vendor/date.php'; ?>
+    <div class="bad_message">
         <?php
-            if($_SESSION['message'])
+            if($_SESSION['bad_message'])
             {
-                echo $_SESSION['message'];
-                unset($_SESSION['message']);
+                echo $_SESSION['bad_message'];
+                unset($_SESSION['bad_message']);
             }
         ?>
+    </div>
+    <div class="good_message">
+        <?php
+            if($_SESSION['good_message'])
+            {
+                echo $_SESSION['good_message'];
+                unset($_SESSION['good_message']);
+            }
+        ?>
+    </div>
+           <div class="content__records">
             <?php
     if($_SESSION['user'])
     {
@@ -74,13 +85,13 @@
         {
             ?>
             <h2>Открыть записи сортированные по:</h2>
-            <a href="admin/recordsempl.php" class="admin__buttons"> сотрудникам</a>
-            <a href="admin/recordsserv.php" class="admin__buttons">услугам</a>
+            <a href="admin/recordsempl.php" style="color: white;font-family: helvetica;text-decoration: none;text-transform: uppercase; margin-top:20%; font-size: 30px;"> сотрудникам</a> <br>
+            <a href="admin/recordsserv.php"style="color: white;font-family: helvetica;text-decoration: none;text-transform: uppercase; margin-top:20%; font-size: 30px;">услугам</a>
         <? }
     }
 ?>
                 <form name='qqq' action="" method="post">
-                   <div class ="content__records__text">Выберите нужную вам:</div>
+                   <div class ="content__records__text">Выберите нужную вам:</div> <div class="choise">
                    <table>
                    <tr><th>дату</th><th>услугу</th><th>мастера</th></tr>
                    <tr>
@@ -88,6 +99,7 @@
                     <input type="date" name="date" value="<?php
                                             if(isset($_POST['date']))
                                                 echo $_POST['date'];
+
                                                           ?>"></td>
                                     <td>
                                     <div class="drop__down__list">
@@ -116,14 +128,13 @@
             ?>
                                         </select></div></td>
                                         <td>
-                                        <div class="drop__down__list">
                     <select name='empl'>
                         <option value="<?php
-                            if(isset($_POST['empl']))
+                            if($_POST['check']!=null&&isset($_POST['empl']))
                                 echo $_POST['empl'];
                         ?>">
                             <?php
-                        if(isset($_POST['empl']))
+                        if($_POST['check']!=null&&isset($_POST['empl']))
                         {
                             $id_serv=(int)antisql($connect,$_POST['empl']);
                             $name=mysqli_fetch_assoc(mysqli_query($connect, "SELECT `fio` FROM `empl` WHERE `id`='$id_serv'"))['fio'];
@@ -143,11 +154,11 @@
                 }
             ?>
                     </select>
-                    </div></td>
+                    </td>
                        </tr>
                     </table>
-                    <input type="submit" name="check" value="Выбрать время"> </form>
-                <?php
+                    <input type="submit" class="button blue" name="check" value="Выбрать время"></div> </form>
+    <?php
     if($_POST['date']!=''&&$_POST['service']!=''&&$_POST['empl']!=''&&$_POST['check']!=null)
     {
         $id_serv=(int)antisql($connect, $_POST['service']);
@@ -174,22 +185,42 @@
             }
         }
         if(count($time_arr, COUNT_RECURSIVE)==0)
-            echo 'Извините, нет свободного времени';
+            echo '<div class="sorry">Извините, нет свободного времени</div>';
         else
         {
-            echo '<form action="lk/vendor/records.php" method="post">';
+            echo '<div class="fff_list"><form class="time" action="lk/vendor/records.php" method="post">';
             foreach($time_arr as $time)
                 echo '<input type="radio" name="time" value="'.$time.'">'.$time.'<br>';
             echo '<input type="hidden" name="id_serv" value="'.$id_serv.'">';
             echo '<input type="hidden" name="id_empl" value="'.$id_empl.'">';
             echo '<input type="hidden" name="date" value="'.$date.'">';
-            echo '<input type="submit" name="rec" value="Записаться">';
+            echo '</div><div class="mace_record"><input type="submit" class=" button blue" name="rec" value="Записаться"></div>';
             echo '</form>';
         }
+
     }
     mysqli_close($connect);
- ?>
-    </div>
+                        ?>
+               </div>
+<div class="footer" id="footer">
+            <div>
+                <div class="footer__inner">
+                   <table><tr>
+                       <td><a class="footer__logo" href="#header">AgaT</a></td>
+                    <td><div class="footer__text">
+                        Каждая женщина уникальна и индивидуальна.<br>А наши специалисты помогут вам ухаживать за вашей природной красотой.
+                    </div></td>
+                    <td><div class="footer__text">
+                        Подписывайтесь на наш инстаграм:
+                    </div><a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank" >
+                            <i class="fab fa-instagram"></i>
+                    </a></td>
+                       <td><div class="footer__phone" align="right">+7(908)517-73-00</div><div class="footer__adress" align="right">Ростов-на-Дону ул. Пулковская 36</div></td>
+                       </tr></table>
+                </div>
+            </div>
+
+</div>
 </body>
 </html>
 

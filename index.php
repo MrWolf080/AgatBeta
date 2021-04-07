@@ -14,20 +14,24 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     </head>
-    <body>
+    <body id="header">
         <header class = "header">
             <div class="container">
                 <div class="header__inner">
-                    <a class="header__logo">AgaT</a>
+                    <a href="#header" class="header__logo">AgaT</a>
                     <nav class="nav">
-                        <a class="nav__link" href="#">О нас</a>
-                        <a class="nav__link" href="#">Сотрудники</a>
-                        <a class="nav__link" href="#galerey">Галерея</a>
-                        <a class="nav__link" href="#">Услуги и цены</a>
-                        <a class="nav__link" href="#">Контакты</a>
+                        <a class="nav__link" href="#about__us">О нас</a>
+                        <a class="nav__link" href="employers.php">Сотрудники</a>
+                        <a class="nav__link" href="records.php">Записаться</a>
+                        <a class="nav__link" href="services.php">Услуги и цены</a>
+                        <a class="nav__link" href="#footer">Контакты</a>
                         <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
+                        <?php
+                            if(!$_SESSION['user'])
+                            {
+                        ?>
                         <a id="login" class="button blue" href="lk/auth.php">
                             <i class="fa fa-unlock"></i>
                             <span>Войти</span>
@@ -36,31 +40,64 @@
                             <i class="fa fa-user-plus"></i>
                             <span>Зарегистрироваться</span>
                         </a>
+                        <?php
+                            }
+                            else
+                            {
+                            ?>
+                                <a id="login" class="button purple" href="lk/exit.php">
+                                    <i class="fa fa-unlock"></i>
+                                     <span>Выйти</span>
+                                </a>
+                            <?php
+                            }
+                        ?>
                     </nav>
                     <!--<button id="login" class="button">Вход / Регистрация</button>-->
                 </div>
             </div>
         </header>
-
         <script src="js/main.js"></script>
         <div class="intro">
-            <?php
-            if($_SESSION['user'])
-            {
-                echo $_SESSION['user']['fio'];
-                ?>
-                <a href="lk/exit.php">ВЫход</a>
-                <?php
-            }
-            ?>
-
+			<div class="settings">
+				<? if($_SESSION['user']&&$_SESSION['user']['role']==3)
+				{
+					echo '<a href="settings.php" class="button purple" style="color: white;font-family: helvetica;text-decoration: none;text-transform: uppercase; margin-top:20%; font-size: 30px;">Настройки</a>';
+				} 
+				?> 
+			</div>
+			<div class="message">
+			 <?php
+				if($_SESSION['good_message'])
+				{
+					echo $_SESSION['good_message'];
+					unset($_SESSION['good_message']);
+				}
+			  ?>
+			  <?php
+				if($_SESSION['bad_message'])
+				{
+					echo $_SESSION['bad_message'];
+					unset($_SESSION['bad_message']);
+				}
+			  ?>
+			</div>
             <div class="container">
                 <div class="intro_inner">
+                  <?
+                   if($_SESSION['user'])
+                    {
+                    ?>
+                    <div class="intro__authended">
+                        <h7>Здравствуйте,</h7> <? echo $_SESSION['user']['fio']; } ?>
+                    </div>
                     <h2 class="intro__title">
-
+                        Добро пожаловать в
                     </h2>
-                    <h1 class="intro_subtitle">Beauty Studio AgaT</h1>
-                    <a href="https://vk.com/im"><img src="/img/btn_white_text.png" alt="" width="400" class="button_grow"></a>
+                    <h1 class="intro_subtitle">
+                        Beauty Studio AgaT
+                    </h1>
+                    <a href="records.php"><img src="/img/btn_white_text.png" alt="" width="400" class="button_grow"></a>
                 </div>
             </div>
         </div>
@@ -73,36 +110,104 @@
                     <h1 class="section__title">выбрали именно нас!</h1>
                     <div class="section__text">
                         <p>
-                            В нашей студии мастера «Beauty Studio Agat» это не только профессионалы своего дела, это прежде всего люди, тонко чувствующие красоту и природу, ориентирующиеся в последних тенденциях fashion-индустрии и способные преобразить каждого!
+                            Мастера в «Beauty Studio Agat» это не только профессионалы своего дела, это прежде всего люди, тонко чувствующие красоту и природу, ориентирующиеся в последних тенденциях fashion-индустрии и способные преобразить каждого!
                         </p>
                     </div>
                 </div>
-                <div id="galerey" class="galerey">
-                <table>
-                    <tr>
-                        <td><img src ="../img/ph1.jpg" alt="" width="320" height="320" class="grow" ></td>
-                        <td><img src ="../img/ph2.jpg" alt="" width="320" height="320" class="grow" ></td>
-                        <td><img src ="../img/ph3.jpg" alt="" width="320" height="320" class="grow" ></td>
-                    </tr>
-                </table>
-                </div>
             </div>
         </section>
-        <footer class="footer" id="footer">
-            <div class="container">
-                <div class="footer__inner">
-                    <a class="footer__logo" href="http://agat.ru/">AgaT</a>
-                    <div class="footer__text">
-                        Каждая женщина уникальна и индивидуальна. А наши специалисты помогут вам ухаживать за вашей природной красотой.
+    <section class="section1" id="works">
+        <div class="container">
+            <div class="section__header">
+                <h3 class="section__suptitle">Галерея</h3>
+                <div class="section__text__galery">
+                    <p>Заходите в наш инстаграм, чтобы следить за самыми новыми работами наших мастеров.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="works">
+            <div class="works__col">
+                <div class="works__item">
+                    <img class="works__image" src="../img/works/1.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Макияж</div>
+                        <div class="works__text">Визажисты нашего салона используют только качественную, стойкую косметику.</div>
+                    </div>
+                </div>
+                <div class="works__item">
+                    <img class="works__image" src="../img/works/2.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Причёска</div>
+                        <div class="works__text">Мы выполняем работы любой сложности и с любой длиной волос.</div>
                     </div>
                 </div>
             </div>
-            <div class="footer__social-content">
-                <div class="footer__text">Подписывайтесь на нас:</div>
-                <a href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
+
+            <div class="works__col">
+                <div class="works__item">
+                    <img class="works__image" src="../img/works/3.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Стрижка</div>
+                        <div class="works__text">Правильно подобранная стрижка способна полностью изменить человека, а мастера нашей бьюти-студии помогут вам в этом.</div>
+                    </div>
+                </div>
+                <div class="works__item">
+                    <img class="works__image" src="../img/works/4.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Наращивание</div>
+                        <div class="works__text">Качественные материалы и профессионализм наших сотрудников помогут вам в обретении долгожданных длинных ногтей.</div>
+                    </div>
+                </div>
             </div>
+
+            <div class="works__col">
+                <div class="works__item">
+                    <img class="works__image" src="../img/works/5.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Маникюр</div>
+                        <div class="works__text">У нас большая цветовая палитра и огромный запас креативных идей для дизайна!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="works__col">
+                <div class="works__item">
+                    <img class="works__image" src="../img/works/6.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Уход</div>
+                        <div class="works__text">Различные виды спа-процедур и косметология доступны в нашем салоне</div>
+                    </div>
+                </div>
+                <div class="works__item">
+                    <img class="works__image" src="../img/works/7.jpg" alt="">
+                    <div class="works__info">
+                        <div class="works__title">Окрашивание</div>
+                        <div class="works__text">В нашем коллективе есть специалисты по сложным техникам окрашивания и ярким окрашиваниям</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <footer class="footer" id="footer">
+            <div class="container">
+                <div class="footer__inner">
+                   <table><tr>
+                       <td><a class="footer__logo" href="#header">AgaT</a></td>
+                    <td><div class="footer__text">
+                        Каждая женщина уникальна и индивидуальна.<br>А наши специалисты помогут вам ухаживать за вашей природной красотой.
+                    </div></td>
+                    <td><div class="footer__text">
+                        Подписывайтесь на наш инстаграм:
+                    </div><a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank" >
+                            <i class="fab fa-instagram"></i>
+                    </a></td>
+                       <td><div class="footer__phone" align="right">+7(908)517-73-00</div><div class="footer__adress" align="right">Ростов-на-Дону ул. Пулковская 36</div></td>
+                       </tr></table>
+                </div>
+            </div>
+
         </footer>
 
     </body>
