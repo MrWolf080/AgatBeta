@@ -40,8 +40,6 @@ h6 {
     background: url("../img/intro.jpg") center no-repeat;
     -webkit-background-size: cover;
     background-size: cover;
-    font-size: 50px;
-    margin: 0 auto;
 }
 
 .intro_inner {
@@ -64,19 +62,10 @@ h6 {
 .intro_subtitle {
     font-size: 100px;
     color: #fff;
-    text-align: center;
     font-family: 'Italianno';
 }
 
-.button_grow{
-    display: block;
-    margin: 0 auto;
-    max-width: 500px;
-}
-
 .button_grow:hover {
-    display: block;
-    margin: 0 auto;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -87,10 +76,6 @@ h6 {
     margin-top: 10px 0;
 }
 
-.intro__authended{
-    margin-top: 0px -15px;
-    font-size: 20px;
-}
 
 
 /* header style */
@@ -116,7 +101,6 @@ h6 {
     font-weight: 700;
     font-family: 'Italianno';
     color: #fff;
-    text-decoration: none;
 }
 
 
@@ -160,7 +144,7 @@ h6 {
 }
 
 .nav__link:hover {
-    color: hsl(10, 66%, 77%);;
+    color: #cd8d2c;
 }
 
 .nav__link:hover:after {
@@ -455,4 +439,9 @@ h6 {
     .section__title:after {
         margin: 20px auto;
     }
+}
+
+.galerey td img {
+    width: 320px;
+    margin: 0 auto;
 }

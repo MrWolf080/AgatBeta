@@ -18,20 +18,16 @@
         <header class = "header">
             <div class="container">
                 <div class="header__inner">
-                    <a href="index.php" class="header__logo">AgaT</a>
+                    <a class="header__logo">AgaT</a>
                     <nav class="nav">
-                        <a class="nav__link" href="#about__us">О нас</a>
-                        <a class="nav__link" href="employers.php">Сотрудники</a>
-                        <a class="nav__link" href="#gallery">Галерея</a>
-                        <a class="nav__link" href="/services.php">Услуги и цены</a>
-                        <a class="nav__link" href="#footer">Контакты</a>
+                        <a class="nav__link" href="#">О нас</a>
+                        <a class="nav__link" href="#">Сотрудники</a>
+                        <a class="nav__link" href="#galerey">Галерея</a>
+                        <a class="nav__link" href="#">Услуги и цены</a>
+                        <a class="nav__link" href="#">Контакты</a>
                         <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <?php
-                            if(!$_SESSION['user'])
-                            {
-                        ?>
                         <a id="login" class="button blue" href="lk/auth.php">
                             <i class="fa fa-unlock"></i>
                             <span>Войти</span>
@@ -40,18 +36,6 @@
                             <i class="fa fa-user-plus"></i>
                             <span>Зарегистрироваться</span>
                         </a>
-                        <?php
-                            }
-                            else
-                            {
-                            ?>
-                                <a id="login" class="button purple" href="lk/exit.php">
-                                    <i class="fa fa-unlock"></i>
-                                     <span>Выйти</span>
-                                </a>
-                            <?php
-                            }
-                        ?>
                     </nav>
                     <!--<button id="login" class="button">Вход / Регистрация</button>-->
                 </div>
@@ -60,29 +44,23 @@
 
         <script src="js/main.js"></script>
         <div class="intro">
-         <?php
-            if($_SESSION['good_message'])
+            <?php
+            if($_SESSION['user'])
             {
-                echo $_SESSION['good_message'];
-                unset($_SESSION['good_message']);
+                echo $_SESSION['user']['fio'];
+                ?>
+                <a href="lk/exit.php">ВЫход</a>
+                <?php
             }
             ?>
+
             <div class="container">
                 <div class="intro_inner">
-                  <?
-                   if($_SESSION['user'])
-                    {
-                    ?>
-                    <div class="intro__authended">
-                        <h7>Здравствуйте,</h7> <? echo $_SESSION['user']['fio']; } ?>
-                    </div>
                     <h2 class="intro__title">
-                        Добро пожаловать в
+
                     </h2>
-                    <h1 class="intro_subtitle">
-                        Beauty Studio AgaT
-                    </h1>
-                    <a href="records.php"><img src="/img/btn_white_text.png" alt="" width="400" class="button_grow"></a>
+                    <h1 class="intro_subtitle">Beauty Studio AgaT</h1>
+                    <a href="https://vk.com/im"><img src="/img/btn_white_text.png" alt="" width="400" class="button_grow"></a>
                 </div>
             </div>
         </div>
@@ -95,15 +73,19 @@
                     <h1 class="section__title">выбрали именно нас!</h1>
                     <div class="section__text">
                         <p>
-                            В нашей уютной студии работают только самые лучшие специальсты. Доверяя вашу красоту профессионалам Бьюти Студии AgaT, вы останетесь довольны!
+                            В нашей студии мастера «Beauty Studio Agat» это не только профессионалы своего дела, это прежде всего люди, тонко чувствующие красоту и природу, ориентирующиеся в последних тенденциях fashion-индустрии и способные преобразить каждого!
                         </p>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section>
-            <div id="gallery" class="gallery">
-                <h1>Галерея в разработке</h1>
+                <div id="galerey" class="galerey">
+                <table>
+                    <tr>
+                        <td><img src ="../img/ph1.jpg" alt="" width="320" height="320" class="grow" ></td>
+                        <td><img src ="../img/ph2.jpg" alt="" width="320" height="320" class="grow" ></td>
+                        <td><img src ="../img/ph3.jpg" alt="" width="320" height="320" class="grow" ></td>
+                    </tr>
+                </table>
+                </div>
             </div>
         </section>
         <footer class="footer" id="footer">
