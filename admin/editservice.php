@@ -97,7 +97,7 @@
                 $price=$arr['price'];
                 $descr=$arr['descr'];
                 $cont=$arr['cont'];
-                echo 'ФИО:<input type="text" value="'.$name.'" name="name'.$i.'"><br>';
+                echo 'Название:<input type="text" value="'.$name.'" name="name'.$i.'"><br>';
                 echo '<input type="hidden" name='.$i.' value='.$id.'>';
                 echo 'Описание:<input type="text" value="'.$descr.'" name="descr'.$i.'"><br>';
                 echo 'Цена:<input type="text" value="'.$price.'" name="price'.$i.'"><br>';

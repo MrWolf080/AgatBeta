@@ -10,6 +10,12 @@
         header("Location: ../../records.php");
         exit;
     }
+    if(!isset($_POST['time']))
+	{
+		$_SESSION['bad_message']="Вы не выбрали время";
+        header("Location: ../../records.php");
+        exit;
+	}
     $date=antisql($connect, $_POST['date']);
     $time=antisql($connect, $_POST['time']);
     $datetime=$date." ".$time;

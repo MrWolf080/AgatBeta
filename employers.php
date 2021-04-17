@@ -88,7 +88,6 @@
 </div>
 <?php
     require_once 'lk/vendor/db_connection.php';
-
     $count_empl_q=mysqli_query($connect, "SELECT COUNT(*) FROM `empl`");
     $count_empl=mysqli_fetch_array($count_empl_q)[0];
     if($count_empl==0)
