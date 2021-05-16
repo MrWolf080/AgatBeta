@@ -5,9 +5,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Сотрудники</title>
     <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon">
-<link rel="stylesheet" href="../styles/style_employers.css" type="text/css">
+    <link rel="stylesheet" href="../styles/style_employers.css" type="text/css">
+    <link rel="stylesheet" href="/styles/style_header_footer.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Italianno" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marck+Script" />
@@ -15,12 +17,49 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
 <body>
+    <style type="text/css">
+                #hellopreloader_preload {
+                    display: block;
+                    position: fixed;
+                    z-index: 99999;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #333 url(http://hello-site.ru//main/images/preloads/oval.svg) center center no-repeat;
+                    background-size: 118px;
+                    margin: 0 auto;
+                }
+    </style>
+            <div id="hellopreloader">
+                <div id="hellopreloader_preload"></div>
+        </div>
+        <script type="text/javascript">
+            var hellopreloader = document.getElementById("hellopreloader_preload");
+
+            function fadeOutnojquery(el) {
+                el.style.opacity = 1;
+                var interhellopreloader = setInterval(function () {
+                    el.style.opacity = el.style.opacity - 0.05;
+                    if (el.style.opacity <= 0.05) {
+                        clearInterval(interhellopreloader);
+                        hellopreloader.style.display = "none";
+                    }
+                }, 16);
+            }
+            window.onload = function () {
+                setTimeout(function () {
+                    fadeOutnojquery(hellopreloader);
+                }, 1000);
+            };
+        </script>
     <div class="body__bgr">
-        <header class = "header">
+       <header class = "header">
             <div class="container">
                 <div class="header__inner">
                     <a href="/index.php" class="header__logo">AgaT</a>
-                    <nav class="nav">
+                    <nav class="nav" id="nav">
+                       <div class="cov" id="cov">
                         <a class="nav__link" href="../index.php#about__us">О нас</a>
                         <a class="nav__link" href="employers.php">Сотрудники</a>
                         <a class="nav__link" href="/records.php">Записаться</a>
@@ -53,8 +92,11 @@
                             <?php
                             }
                         ?>
+                        </div>
                     </nav>
-                    <!--<button id="login" class="button">Вход / Регистрация</button>-->
+                    <button class="nav-toggle" id="nav_toggle" type="button">
+                        <span class="nav-toggle__item">menu</span>
+                    </button>
                 </div>
             </div>
         </header>
@@ -63,8 +105,8 @@
     if($_SESSION['user'])
             if($_SESSION['user']['role']==3)
             {
-                echo '<a href="admin/addempl.php" style="color: white;font-family: helvetica;text-decoration: none;text-transform: uppercase; margin-top:20%; font-size: 30px;">Добавить сотрудника</a><br>';
-                echo '<a href="admin/editempl.php" style="color: white;font-family: helvetica;text-decoration: none;text-transform: uppercase; font-size: 30px;">Редактировать сотрудника</a><br>';
+                echo '<a href="admin/addempl.php" class="button purple adm">Добавить сотрудника</a><br>';
+                echo '<a href="admin/editempl.php" class="button purple adm">Редактировать сотрудника</a><br>';
             }
 ?></div>
 <div class="bad_message">
@@ -96,25 +138,21 @@
 <?
     $query=mysqli_query($connect, "SELECT * FROM `empl`");
 
-    $numcols=1;
-    if($count_empl!=0)
-    {
+
         ?>
         <div class="employers__logo">Наша команда</div>
-        <div class="employes__table">
-        <table>
-        <colgroup>
-        <col span="3" style="max-width:350px; background-color: hsla(10, 66%, 77%, .4);">
-      </colgroup>
+
+
         <?
         while( $arr = mysqli_fetch_assoc( $query ) )
         {
-            if($numcols==1)
-                echo '<tr>';
-            ?>
-            <td><div class="employers__content">
-            <img alt="" class="grow" height="400px" width="280"  src="data:image/*;base64,<? echo base64_encode($arr['photo']); ?>" /><br>
 
+            ?>
+
+            <td><div class="employers__content">
+            <img src="data:image/*;base64,<? echo base64_encode($arr['photo']); ?>" alt="" align="right" class="grow person" height="600px" width="420px" loading="lazy"/><br>
+            <div class="cover">
+            <div class="personal__card">
             <div class="employers__fio"><? echo $arr['fio']; ?></div>
             <div class="employers__email"><? echo $arr['email']; ?></div>
             <div class="employers__descr"><? echo $arr['descr']; ?></div>
@@ -125,7 +163,7 @@
             {
             ?>
 
-            <div class="5">Услуги, выполняемые сотрудником:</div>
+            <div class="employers__ordlist">Услуги, выполняемые сотрудником:</div>
               <div class="empl_list">
                <ul>
                 <?
@@ -144,35 +182,25 @@
             }
             ?>
 
-                </div></td>
-            <?
-            if($numcols==3)
-            {
-                echo '</tr>';
-                $numcols=0;
-            }
-            $numcols++;
-        }
-        if($numcols!=1)
-            echo '</tr>';
-        ?>
+                </div></div> </div></td>
 
-            </table></div>
+
+
 
         <?
     }
     mysqli_close($connect);
 ?>
     </div>
-    <div class="footer" id="footer">
-            <div>
+ <footer class="footer" id="footer">
+            <div class="container">
                 <div class="footer__inner">
                    <table><tr>
-                       <td><a class="footer__logo" href="#header">AgaT</a></td>
+                       <td><a class="footer__logo" href="/index.php">AgaT</a></td>
                     <td><div class="footer__text">
                         Каждая женщина уникальна и индивидуальна.<br>А наши специалисты помогут вам ухаживать за вашей природной красотой.
                     </div></td>
-                    <td><div class="footer__text">
+                    <td><div class="footer__text1">
                         Подписывайтесь на наш инстаграм:
                     </div><a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank" >
                             <i class="fab fa-instagram"></i>
@@ -182,6 +210,8 @@
                 </div>
             </div>
 
-</div>
+        </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/main.js"></script>
     </body>
 </html>

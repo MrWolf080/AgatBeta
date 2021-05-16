@@ -4,35 +4,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Регистрация</title>
-    <link rel="shortcut icon" href="/img/titlepic.png" >
-    <link rel="stylesheet" href="../styles/style_reg.css" type="text/css">
+    <link rel="shortcut icon" href="/img/titlepic.png" type="image/x-icon"/>
+	<link rel="stylesheet" href="../styles/style_reg.css" type="text/css"/>
+    <link rel="stylesheet" href="../styles/style_header_footer.css" type="text/css"/>
+	<link rel="stylesheet" href="../styles/style_preloader.css" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tenor+Sans" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Italianno" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Marck+Script" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/js/main.js"></script>
 </head>
 <body>
+		<div id="hellopreloader">
+			<div id="hellopreloader_preload"></div>
+        </div>
+        <script type="text/javascript">
+            var hellopreloader = document.getElementById("hellopreloader_preload");
+            function fadeOutnojquery(el) {
+                el.style.opacity = 1;
+                var interhellopreloader = setInterval(function () {
+                    el.style.opacity = el.style.opacity - 0.05;
+                    if (el.style.opacity <= 0.05) {
+                        clearInterval(interhellopreloader);
+                        hellopreloader.style.display = "none";
+                    }
+                }, 16);
+            }
+            window.onload = function () {
+                setTimeout(function () {
+                    fadeOutnojquery(hellopreloader);
+                }, 1000);
+            };
+        </script>
     <div class="body__bgr">
         <header class = "header">
-            <div class="container">
-                <div class="header__inner">
-                    <a class="header__logo" href="../index.php">AgaT</a>
-                    <nav class="nav">
-                        <a class="nav__link" href="../index.php#about__us">О нас</a>
-                        <a class="nav__link" href="../employers.php">Сотрудники</a>
-                        <a class="nav__link" href="../records.php">Записаться</a>
-                        <a class="nav__link" href="../services.php">Услуги и цены</a>
-                        <a class="nav__link" href="#footer">Контакты</a>
-                        <a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </nav>
-                </div>
-            </div>
-        </header>
+			<div class="container">
+				<div class="header__inner">
+					<a href="/index.php" class="header__logo">AgaT</a>
+					<nav class="nav" id="nav">
+					   <div class="cov" id="cov">
+							<a class="nav__link" href="../index.php#about__us">О нас</a>
+							<a class="nav__link" href="../employers.php">Сотрудники</a>
+							<a class="nav__link" href="../records.php">Записаться</a>
+							<a class="nav__link" href="../services.php">Услуги и цены</a>
+							<a class="nav__link" href="../index.php#footer">Контакты</a>
+							<a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank">
+								<i class="fab fa-instagram"></i>
+							</a>
+							<?php
+								if(!$_SESSION['user'])
+								{
+									?>
+									<a id="login" class="button blue" href="../lk/auth.php">
+										<i class="fa fa-unlock"></i>
+										<span>Войти</span>
+									</a>
+									<a id="register" class="button purple" href="../lk/reg.php">
+										<i class="fa fa-user-plus"></i>
+										<span>Зарегистрироваться</span>
+									</a>
+									<?
+								}
+								else
+								{
+									?>
+									<a id="login" class="button purple" href="../lk/exit.php">
+										<i class="fa fa-unlock"></i>
+										 <span>Выйти</span>
+									</a>
+									<?
+								}
+							?>
+						</div>
+					</nav>
+					<button class="nav-toggle" id="nav_toggle" type="button">
+						<span class="nav-toggle__item">menu</span>
+					</button>
+				</div>
+			</div>
+		</header>
         <div class="message">
     <?php
         if($_SESSION['good_message'])
@@ -62,7 +117,7 @@
     <div class="form">
     <div class="label_auth_reg">Регистрация</div>
         <div class="haveacc">
-            <div align="right">
+            <div class="wap" align="right">
                 <label>ФИО:</label>
                 <input type="text" name="fio" placeholder="Введите свое полное имя" value="<?php if($_SESSION['post']) echo $_SESSION['post']['fio']; ?>">
                 <br>
@@ -107,7 +162,7 @@
      $("#phone_2").click(function(){$(this).setCursorPosition(3);}).mask("+7(999) 999-99-99");
     </script>
 </form>
-  </div><!-- close div class body__bgr-->
+  </div>
    <?php
     unset($_SESSION['post']);
     function check_code($code, $cap)
@@ -136,28 +191,28 @@
         if($fio==''||$email==''||$tel==''||$password==''||$pass_conf==''||$code=='')
         {
             $_SESSION['bad_message']='Пожалуйста, заполните все поля';
-            echo "<script>window.location.href='reg.php';window.location.replace('reg.php');</script>";
+            echo "<script>window.location.href='reg.php';</script>";
             exit;
         }
 
         if($password!=$pass_conf)
         {
             $_SESSION['bad_message']='Ошибка: Пароли не совпадают!';
-            echo "<script>window.location.href='reg.php';window.location.replace('reg.php');</script>";
+            echo "<script>window.location.href='reg.php';</script>";
             exit;
         }
 
         if(mb_strlen($password)<4||mb_strlen($password)>15)
         {
             $_SESSION['bad_message']='Ошибка: Длина пароля должна быть в пределах 4-15 символов';
-            echo "<script>window.location.href='reg.php';window.location.replace('reg.php');</script>";
+            echo "<script>window.location.href='reg.php';</script>";
             exit;
         }
 
         if (!check_code($code, $cap))
         {
             $_SESSION['bad_message']='Вы неправильно ввели символы с картинки';
-            echo "<script>window.location.href='reg.php';window.location.replace('reg.php');</script>";
+            echo "<script>window.location.href='reg.php';</script>";
             exit;
         }
 
@@ -168,7 +223,7 @@
         if(!$query)
         {
             $_SESSION['bad_message']='Неизвестная ошибка';
-            echo "<script>window.location.href='reg.php';window.location.replace('reg.php');</script>";
+            echo "<script>window.location.href='reg.php';</script>";
             exit;
         }
         $_SESSION['good_message']='Регистрация прошла успешно';
@@ -183,18 +238,18 @@
         ];
 
         mysqli_close($connect);
-        echo "<script>window.location.href='../index.php';window.location.replace('../index.php');</script>";
+        echo "<script>window.location.href='../index.php';</script>";
     }
 ?>
 <footer class="footer" id="footer">
-            <div class="">
+            <div class="container">
                 <div class="footer__inner">
                    <table><tr>
                        <td><a class="footer__logo" href="/index.php">AgaT</a></td>
                     <td><div class="footer__text">
                         Каждая женщина уникальна и индивидуальна.<br>А наши специалисты помогут вам ухаживать за вашей природной красотой.
                     </div></td>
-                    <td><div class="footer__text">
+                    <td><div class="footer__text1">
                         Подписывайтесь на наш инстаграм:
                     </div><a class="nav__link" href="https://www.instagram.com/beauty_studio_agat/" target="_blank" >
                             <i class="fab fa-instagram"></i>
@@ -205,5 +260,6 @@
             </div>
 
         </footer>
-</body>
+
+    </body>
 </html>

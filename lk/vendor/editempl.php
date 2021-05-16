@@ -16,6 +16,7 @@
         return array_intersect_key($input, array_flip(preg_grep($pattern, array_keys($input), $flags)));
     }
     $a1=array_keys(preg_grep_keys("/^\d*\+\d*/", $_POST));
+	
     if(!empty( $_FILES['image'.$i]['name'] ))
         if ($_FILES['image'.$i]['error'] == 0)
             if(substr($_FILES['image'.$i]['type'], 0, 5)=='image')
