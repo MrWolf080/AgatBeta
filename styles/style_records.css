@@ -287,14 +287,9 @@ select[name='empl']{
     padding-right: 15px;
 }
 
-select[name='time']{
-    padding: 10px;
-    margin: 10px;
-    border: 0;
-    align-items: left;
-    padding-right: 15px;
+.time{
+	margin: 0 auto;
 }
-
 
 /* FORM */
 
@@ -375,3 +370,10 @@ select[name='time']{
     }
 }
 */
+
+@media (max-width: 610px){
+	.fff_list {
+    margin: 0 auto;
+    max-width: 120px;
+}
+}

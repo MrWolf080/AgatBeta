@@ -123,7 +123,6 @@ button[type=submit]:hover:after {
 }
 
 .not_enough{
-    margin-top: 100px;
     background-color: hsl(10, 66%, 77%);
     font-size: 30px;
     text-align: center;
@@ -262,9 +261,10 @@ input{
 }
 
 .admin__buttons {
-    margin: 10px;
     font-size: 20px;
 	margin-top:100px;
+	display: flex;
+    justify-content: center;
 }
 
 

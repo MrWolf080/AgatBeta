@@ -178,9 +178,10 @@
                         $id_serv=$rec['id_empl'];
                         $id_user=$rec['id_user'];
                         $id=$rec['id'];
+						$rec_date=substr($rec['date'],0,10);
                         $time=substr($rec['date'],11,5);
                         ?>
-                        <input type="date" name="date<? echo $id; ?>" value="<? echo $date; ?>">
+                        <input type="date" name="date<? echo $id; ?>" value="<? echo $rec_date; ?>">
                         <?
                         $length=mysqli_fetch_assoc(mysqli_query($connect, "SELECT `cont` FROM `service` WHERE `id`='$id_empl'"))['cont'];
                         $endtime=add_minutes_time($time, $length);
