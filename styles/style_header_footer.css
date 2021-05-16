@@ -1,0 +1,414 @@
+.button.purple.adm {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: 'Arial';
+    text-decoration: none;
+    margin: 3px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* SKROLLING HEADER*/
+
+.header__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: hsla(0, 0%, 20%, 0.6);
+    animation-name: show_header;
+    animation-duration: 1s;
+}
+
+.header.active {
+    background-color: hsla(0, 0%, 20%, 0.6);
+}
+
+@keyframes show_header {
+    0% {
+        opacity: 0;
+        top: -70px;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+
+/* links / navigation */
+
+.nav {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.nav a {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.nav.active {
+    display: block;
+}
+
+.cov.active {
+    float: right;
+    background: hsla(0, 0%, 20%, 0.6);
+    display: grid;
+}
+
+.nav__link {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.25s linear;
+    position: relative;
+}
+
+.nav__link:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: hsl(10, 66%, 77%);
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: opacity 0.25s linear;
+}
+
+.nav__link:hover {
+    color: hsl(10, 66%, 77%);
+}
+
+.nav__link:hover:after,
+.nav__link.active:after {
+    opacity: 1;
+}
+
+
+/* Nav toggle */
+
+.nav-toggle {
+    width: 30px;
+    padding: 10px 0;
+    display: none;
+    font-size: 0;
+    color: transparent;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 1;
+}
+
+.nav-toggle:focus {
+    outline: 0;
+}
+
+.nav-toggle__item {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transition: background .2s linear;
+}
+
+.nav-toggle.active .nav-toggle__item {
+    background: none;
+}
+
+.nav-toggle__item:before,
+.nav-toggle__item:after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    transition: transform .2s linear;
+}
+
+.nav-toggle__item:before {
+    top: -8px;
+}
+
+.nav-toggle__item:after {
+    bottom: -8px;
+}
+
+.nav-toggle.active .nav-toggle__item:before {
+    transform-origin: left top;
+    transform: rotate(45deg) translate3d(0px, -2px, 0)
+}
+
+.nav-toggle.active .nav-toggle__item:after {
+    transform-origin: left bottom;
+    transform: rotate(-45deg) translate3d(0px, 3px, 0);
+}
+
+/* FOOTER */
+
+.footer {
+    padding-top: 50px;
+    background-color: #333;
+    padding-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+td {
+    font-size: 0.8em;
+    padding: 5px 10px;
+}
+
+.footer__logo {
+    font-size: 50px;
+    font-weight: 700;
+    color: #cd8d2c;
+    font-family: 'Italianno';
+}
+
+.footer__text {
+    font-size: 15px;
+    color: #fff;
+    font-family: 'Tenor Sans';
+    max-width: 400px;
+}
+
+.footer__text1 {
+    font-size: 15px;
+    color: #fff;
+    font-family: 'Tenor Sans';
+    max-width: 400px;
+}
+
+.footer__inner {
+    padding-bottom: 20px;
+}
+
+.footer__social-content a {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.footer__title {
+    margin: 30px 0;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.footer__phone {
+    font-size: 30px;
+    text-align: right;
+    color: #fff;
+}
+
+.footer__adress {
+    color: #fff;
+    font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+    .footer {
+        padding-top: 10px;
+    }
+    .footer__text1 {
+        max-width: 150px;
+        margin: 0 auto;
+    }
+    .footer__inner {
+        padding-bottom: 0px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    td {
+        font-size: 0.8em;
+        padding: 0px;
+    }
+    .footer__text {
+        font-size: 12px;
+        color: #fff;
+        font-family: 'Tenor Sans';
+        max-width: 170px;
+        margin: 0px auto;
+    }
+    .nav {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+    .nav.active {
+        display: block;
+    }
+    .nav__link {
+        display: block;
+        margin: 0;
+        padding: 8px 20px;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .header__logo {
+        font-size: 42px;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 990px) {
+    .intro__title {
+        font-size: 30px;
+    }
+    .intro_subtitle {
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 900px) {
+    .footer__logo {
+        font-size: 35px;
+    }
+    .footer__text {
+        font-size: 8px;
+        color: #fff;
+        font-family: 'Tenor Sans';
+        max-width: 140px;
+        margin: 0px auto;
+    }
+    .footer__text1 {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 770px) {
+     .footer__text {
+        font-size: 1px;
+        color: #333;
+        font-family: 'Tenor Sans';
+        max-width: 1px;
+        margin: 0px auto;
+    }
+}
+
+@media (max-width: 575px) {
+    .footer__text1 {
+        font-size: 1px;
+        color: #333;
+    }
+    .footer__logo {
+        font-size: 1px;
+        color: #333;
+    }
+}
+
+@media (max-width: 430px){
+    .footer__phone{
+        font-size: 15px;
+    }
+    .footer__adress {
+    font-size: 8px;
+    }
+}
+
+
+.preloader {
+  /*фиксированное позиционирование*/
+  position: fixed;
+  /* координаты положения */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* фоновый цвет элемента */
+  background: #e0e0e0;
+  /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+  z-index: 1001;
+}
+
+.preloader__row {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  background-color: #337ab7;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-bounce {
+
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}

@@ -18,6 +18,12 @@
     background-color: hsla(0, 0%, 20%, 0.6);
 }
 
+.change_delete {
+    margin-top:100px;
+    display: flex;
+    justify-content: center;
+}
+
 .header__inner {
     display: flex;
     justify-content: space-between;
@@ -123,7 +129,7 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    background: url("../img/bgr10.jpg") center no-repeat;
+    background: url("../img/bgr10.jpg") center repeat-y;
     -webkit-background-size: cover;
     background-size: cover;
     margin: 0 auto;
@@ -312,12 +318,21 @@ button[type=submit]:hover:after {
     font-size: 55px;
     text-align: center;
     color: hsl(10, 66%, 77%);
-
 }
 
 .services__content {
-    padding: 0, 15, 15, 15;
-    margin-top: 0;
+    background-color: #ebab9e38;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+
+.services__content__wrap{
+    display: flex;
+    justify-content: center;
 }
 
 .services__table {
@@ -408,13 +423,8 @@ th{width: 20%;}
     background-color: aqua;
 }
 
-.change_delete {
-    margin: 10% auto;
-    padding-left: 40%;
-}
-
 .message{
-    margin-top: 10%;
+    margin-top: 20px;
     text-align: center;
     font-size: 25px;
 }
@@ -431,7 +441,7 @@ th{width: 20%;}
 /* FOOTER */
 
 .footer {
-    padding-top: 50px;
+    padding-top: 10px;
     background-color: #333;
     padding-bottom: 10px;
 }
@@ -487,4 +497,38 @@ h7 {
 .footer__adress{
     color: #fff;
     font-size: 14px;
+}
+
+
+
+@media (max-width: 430px) {
+    .change_delete {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+    .serv1 {
+    font-family: 'Tenor Sans';
+    color: hsl(10, 66%, 77%);
+    font-size: 25px;
+    font-weight: 700;
+}
+    .serv3 {
+    font-family: 'Tenor Sans';
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+}
+        font-family: 'Tenor Sans';
+    font-size: 13px;
+    text-align: center;
+}
+.serv2 {
+    font-family: 'Tenor Sans';
+    font-size: 13px;
+    text-align: center;
+}
+
+
 }

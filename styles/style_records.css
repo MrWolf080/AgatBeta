@@ -6,84 +6,11 @@
     margin: auto;
 }
 
-.header {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding-top: 10px;
-    background-color: hsla(0, 0%, 20%, 0.6);
-}
-
 .header__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.header__logo {
-    font-size: 70px;
-    font-weight: 700;
-    font-family: 'Italianno';
-    color: #fff;
-    z-index: 0;
-    text-decoration: none;
-}
-
-.header__logo:hover {
-    color: hsl(10, 66%, 77%);
-    text-decoration-style: solid;
-}
-
-
-/* links / navigation */
-
-.nav {
-    font-size: 14px;
-    text-transform: uppercase;
-}
-
-.nav a {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 10px;
-    font-size: 14px;
-    color: #fff;
-}
-
-.nav__link {
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 15px;
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.25s linear;
-    position: relative;
-}
-
-.nav__link:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: hsl(10, 66%, 77%);
-    opacity: 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-    transition: opacity 0.25s linear;
-}
-
-.nav__link:hover {
-    color: hsl(10, 66%, 77%);
-}
-
-.nav__link:hover:after {
-    opacity: 1;
-}
-
 
 /* REGISTRATION */
 
@@ -100,7 +27,7 @@
 
 .content__records__text{
     font-family: 'Marck Script';
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 700;
     color: #fff;
     margin-bottom: 10px;
@@ -138,23 +65,31 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Tenor Sans';
-    width: 100%;
-    background: url("../img/bgr9.jpg") center repeat;
-    margin: 0 auto;
-    height: 100%;
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
-input {
-    padding: 10px;
-    margin: 10px;
-    border: 0;
-    width: 100%;
-    max-width: 300px;
-    align-items: left;
-    padding-right: 15px;
+.wrapper1{
+
 }
+.content {
+    flex: 1 0 auto;
+}
+
+body {
+    margin: 0 auto;
+}
+.body__bgr{
+    font-family: 'Tenor Sans';
+    width: 100%;
+    height: 100vh;
+    background: url("../img/bgr9.jpg") center repeat;
+    margin: 0 auto;
+    grid-template-rows: auto 1fr auto;
+}
+
 
 form {
     text-align: center;
@@ -352,6 +287,14 @@ select[name='empl']{
     padding-right: 15px;
 }
 
+select[name='time']{
+    padding: 10px;
+    margin: 10px;
+    border: 0;
+    align-items: left;
+    padding-right: 15px;
+}
+
 
 /* FORM */
 
@@ -367,7 +310,7 @@ select[name='empl']{
 }
 .fff_list{
     width: 600px;
-    text-align: right;
+    margin: 0 auto;
 }
 
 .fff_list1{
@@ -382,66 +325,53 @@ select[name='empl']{
 }
 
 
-/* FOOTER */
-.footer {
-    padding-top: 10px;
+
+/* HEADER */
+
+
+.header {
     width: 100%;
-    background-color: #333;
-    padding-bottom: 10px;
-    height: 100%;
-    margin-top: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: 10px;
+    background-color: hsla(0, 0%, 20%, 0.6);
 }
 
 
-table {
-   width: 100%;
-    text-align: center;
-}
 
-td {
-  font-size: 0.8em;
-  padding: 5px 10px;
-}
 
-.footer__logo {
-    font-size: 50px;
+.header__logo {
+    font-size: 70px;
     font-weight: 700;
-    color: #cd8d2c;
     font-family: 'Italianno';
+    color: #fff;
+    z-index: 0;
+    text-decoration: none;
 }
 
-.footer__text {
-    font-size: 15px;
-    color: #fff;
-    font-family: 'Tenor Sans';
-    max-width: 400px;
+.header__logo:hover {
+    color: hsl(10, 66%, 77%);
+    text-decoration-style: solid;
 }
 
-.footer__inner {
-    padding-bottom: 10px;
+/*
+.choise.small{
+    display: none;
 }
 
-.footer__social-content a {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 10px;
-    font-size: 18px;
-    color: #fff;
-}
 
-.footer__title {
-    margin: 30px 0;
-    font-size: 14px;
-    color: #fff;
-    text-transform: uppercase;
-}
 
-.footer__phone{
-    font-size: 30px;
-    text-align: right;
-    color: #fff;
+@media (max-width: 990px){
+    .choise.small{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .choise.big{
+        display: none;
+    }
 }
-.footer__adress{
-    color: #fff;
-    font-size: 14px;
-}
+*/

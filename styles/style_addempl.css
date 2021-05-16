@@ -128,19 +128,17 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    background: url("../img/bgr9.jpg") center no-repeat;
+    background: url("../img/bgr9.jpg") center repeat;
     -webkit-background-size: cover;
     background-size: cover;
     margin: 0 auto;
 }
 
 input {
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
     border: 0;
-    width: 100%;
     max-width: 300px;
-    align-items: left;
     padding-right: 15px;
 }
 
@@ -291,22 +289,14 @@ button[type=submit]:hover:after {
     color: #333;
     font-weight: 700;
     background-color: hsl(10, 66%, 77%);
-    margin-top: 100px;
+    margin-top: 10px;
 }
-
-.admin__buttons {
+.not_enough{
+    margin-top: 10px;
     background-color: hsl(10, 66%, 77%);
-    margin: 10px;
-    font-size: 20px;
-}
-
-.mess {
-    background-color: hsl(10, 66%, 77%);
-    margin-bottom: 20%;
     font-size: 30px;
-    font-weight: 700;
+    text-align: center;
 }
-
 .good_message {
     background-color: #91da7e;
     transform: translateY(-50%);
@@ -317,14 +307,22 @@ button[type=submit]:hover:after {
 
 .bad_message {
     background-color: hsl(10, 66%, 77%);
-    transform: translateY(-50%);
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
     text-align: center;
+    margin-top: 5px;
 }
 
-.checkbox_list{
+.admin__buttons {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.checkbox_list {
     text-align: left;
+    max-width: fit-content;
+    margin: 0 auto;
 }
 
 .title_logo{

@@ -88,24 +88,33 @@
 
 .bad_message{
     background-color: hsl(10, 66%, 77%);
-    margin-top: 200px;
+    margin-top: 10px;
     font-size: 30px;
     font-weight: 700;
     text-align: center;
 }
 
 .not_enough{
-    margin-top: 150px;;
+    margin-top: 10px;
     background-color: hsl(10, 66%, 77%);
     font-size: 30px;
     text-align: center;
 }
 
 .notempl{
-    margin-top: 150px;;
+    margin-top: 10px;;
     background-color: hsl(10, 66%, 77%);
     font-size: 30px;
     text-align: center;
+}
+
+.label{
+    font-size: 17px;
+}
+
+.cont{
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -137,10 +146,11 @@
     margin-top: 10px;
 }
 
-.checkbox_list{
+.checkbox_list {
     text-align: left;
+    max-width: fit-content;
+    margin: 0 auto;
 }
-
 
 
 /* Instagram */
@@ -179,13 +189,12 @@ body {
     margin: 0 auto;
 }
 
+
 input {
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
     border: 0;
-    width: 100%;
     max-width: 300px;
-    align-items: left;
     padding-right: 15px;
 }
 
@@ -343,7 +352,7 @@ button[type=submit]:hover:after {
 }
 
 .admin__buttons {
-    margin-top: 200px;
+    margin-top: 100px;
     font-size: 20px;
     text-align: center;
     font-size: 30px;

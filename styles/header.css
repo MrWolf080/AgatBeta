@@ -203,19 +203,43 @@ p {
     text-align: center;
 }
 
+/* sign up button */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css');
+button[type=submit] {
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 12px 16px;
+    border-radius: 100px;
+    color: #fff;
+    background-color: #0d8aee;
+    text-transform: none;
+    font-family: 'Tenor Sans';
+}
+
+button[type=submit]:hover {
+    background: #39a1f4;
+    transition: opacity 0.25s linear;
+}
+
+button[type=submit] i {
+    margin-right: 4px;
+}
+
+button[type=submit]:hover:after {
+    opacity: 1;
+}
+
 
 /* sign up button */
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css');
-
-
-
-/* sign up button */
-
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css');
-
-
-.button_blue {
+.button {
     border: none;
     outline: none;
     display: inline-block;
@@ -228,38 +252,57 @@ p {
     color: #fff;
     text-transform: none;
     font-family: 'Tenor Sans';
+}
+
+.button i {
+    margin-right: 4px;
+}
+
+.button + .button {
+    margin-left: 6px;
+}
+
+.button.blue {
     background: #2196F3;
-    margin-left: 6px;
 }
 
-.button_purple {
+.button.purple {
     background: #9b59b6;
-    border: none;
-    outline: none;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 14px;
-    padding: 12px 16px;
-    border-radius: 100px;
-    color: #fff;
-    text-transform: none;
-    font-family: 'Tenor Sans';
-    margin-left: 6px;
 }
 
-.button_blue:hover {
+.button:hover {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover.blue {
     background: #39a1f4;
 }
 
-
-.button_purple:hover {
+.button:hover.purple {
     background: #a66bbe;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+.button:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.button:active.blue {
+    background: #0d8aee;
+}
+
+.button:active.purple {
+    background: #8f4bab;
+}
+
+.button:hover {
+    background: #333;
+    transition: opacity 0.25s linear;
+}
+
+.button:hover:after {
+    opacity: 1;
+}
 
 .good_message {
     background-color: #91da7e;
@@ -327,5 +370,7 @@ td, th{
 }
 
 .set_cont{
-	margin-top: 100px;
+    margin-top: 100px;
 }
+
+

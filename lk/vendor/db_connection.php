@@ -1,5 +1,5 @@
 <?php
-	$connect=mysqli_connect('localhost','a0530309_agat','root','a0530309_agat');
+	$connect=mysqli_connect('localhost','root','root','salon_beta');
 	
 	if(!isset($connect))
 	{

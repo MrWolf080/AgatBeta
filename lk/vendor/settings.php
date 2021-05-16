@@ -30,6 +30,12 @@
 	else if(array_key_exists("setrole", $_POST))
 	{
 		$id=(int)antisql($connect, $_POST['user_role']);
+		if($id==1)
+		{
+			$_SESSION['bad_message']='Нельзя изменять права этому пользователю';
+			header('Location: ../../settings.php');
+			exit;
+		}
 		if(mysqli_fetch_array(mysqli_query($connect, "SELECT COUNT(*) FROM `user` WHERE `id`='$id'"))[0]==0)
 		{
 			$_SESSION['bad_message']='Нет такого пользователя';
@@ -56,6 +62,12 @@
 		
 		
 		$id=(int)antisql($connect, $_POST['user_del']);
+		if($id==1)
+		{
+			$_SESSION['bad_message']='Нельзя удалять этого пользователя';
+			header('Location: ../../settings.php');
+			exit;
+		}
 		if(mysqli_fetch_array(mysqli_query($connect, "SELECT COUNT(*) FROM `user` WHERE `id`='$id'"))[0]==0)
 		{
 			$_SESSION['bad_message']='Нет такого пользователя';
