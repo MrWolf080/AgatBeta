@@ -1,5 +1,23 @@
 <?php
     session_start();
+	require_once 'lk/vendor/db_connection.php';
+	
+	$year=mysqli_fetch_array(mysqli_query($connect, "SELECT `year` FROM `settings` WHERE `id`='1'"))[0];
+	$year_now=date("Y");
+	if(((int)$year)<((int)$year_now))
+	{
+		$trunc=mysqli_query($connect, "TRUNCATE TABLE `record`");
+		$new_year=mysqli_query($connect, "UPDATE `settings` SET `year`='$year_now' WHERE `id`='1'");
+		if(!$trunc||!$new_year)
+		{
+			$_SESSION['bad_message']="Что-то не так с очисткой базы";
+		}
+		else
+		{
+			$_SESSION['good_message']="База успешно очищена от старых записей";
+		}
+	}
+	
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -213,3 +231,6 @@
     </body>
 
     </html>
+	<?
+		mysqli_close($connect);
+	?>

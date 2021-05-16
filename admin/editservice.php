@@ -99,7 +99,7 @@
         </div>
     </div>
 </header>
-<!--<div class="admin__buttons">
+<div class="admin__buttons">
     <?php
         if($_SESSION['user'])
         {
@@ -111,7 +111,7 @@
                 }
         }
     ?>
-</div>-->
+</div>
 <div class="not_enough">
     <?php
         if(!$_SESSION['user']||$_SESSION['user']['role']!=3)
